@@ -3,13 +3,14 @@ class Page  < ActiveRecord::Base
   belongs_to :category
   has_many :commits
 
+  attr_accessor :commit_message
+
   validates_presence_of :title
   validates_presence_of :content
   validates_presence_of :category
+  validates_presence_of :commit_message
 
   after_create :create_commit
-
-  attr_accessor :commit
 
   private
 

@@ -13,7 +13,7 @@
           </div>
         <% end %>
 
-        <%= form_for [@category, @page] do |f| %>
+        <%= form_for [Category.find(params[:category_id]), @page] do |f| %>
 
          <div class="content">
 
@@ -28,8 +28,8 @@
           </div>
 
           <div class="control-group">
-            <%= f.label :commit %>
-            <%= f.text_field :commit, :style => 'width:100%' %>
+            <%= f.label :commit_message %>
+            <%= f.text_field :commit_message, :style => 'width:100%' %>
           </div>
 
           <div class="control-group">
@@ -38,9 +38,6 @@
           </div>
 
          </div>
-
-        <input type="hidden" name="url" id="url" value="<%= request.referer %>">
-        <%= f.hidden_field :user_id, :value => session[:user_id] %>
 
         <div class="content">
           <%= f.submit nil, :class => 'btn btn-primary' %>
