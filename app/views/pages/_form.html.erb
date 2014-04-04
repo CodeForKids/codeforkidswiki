@@ -23,13 +23,18 @@
           </div>
 
           <div class="control-group">
-            <%= f.label :content %>
-            <%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120 %>
+            <%= f.label :category %>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => false}) %>
           </div>
 
           <div class="control-group">
-            <%= f.label :category %>
-            <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => false}) %>
+            <%= f.label :commit %>
+            <%= f.text_field :commit, :style => 'width:100%' %>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :content %>
+            <%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120 %>
           </div>
 
          </div>

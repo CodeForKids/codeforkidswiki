@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :check_admin, only: [:new, :edit, :update, :destroy]
   before_action :set_page, only: [:show, :edit, :update, :destroy, :history]
   before_action :set_category, only: [:new, :edit]
+  after_action :update_commit, only: [:update]
 
   # GET /pages
   # GET /pages.json
@@ -72,6 +73,14 @@ class PagesController < ApplicationController
   end
 
   private
+
+    def update_commit
+      commit = Commit.new
+      commit.page = @page
+      commit.user = User.current_user
+      commit.message = params[:page][:commit]
+      commit.save!
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_page

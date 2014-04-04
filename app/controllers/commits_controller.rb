@@ -5,7 +5,7 @@ class CommitsController < ApplicationController
   # GET /commits
   # GET /commits.json
   def index
-    @commits = Commit.where(:page_id => params[:page_id])
+    @commits = Commit.where(:page_id => params[:page_id]).order('updated_at desc')
   end
 
   # GET /commits/1
