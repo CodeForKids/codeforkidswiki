@@ -1,0 +1,21 @@
+<div class="row padded-vert">
+  <div class="panel callout">
+    <p>
+      This is a free wiki page Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget mi odio. Cras malesuada dolor quis ligula vestibulum euismod. Quisque eros odio, tempor a elit a, mattis gravida augue. Etiam ac placerat dolor. Fusce sollicitudin nibh imperdiet hendrerit egestas. Etiam euismod laoreet augue ac aliquam. Pellentesque sed facilisis leo.
+    </p>
+  </div>
+</div>
+
+<div class="row padded-vert">
+
+<% @pages.each do |page| %>
+<div class="medium-3 columns"  style="float:left !important">
+  <div class="panel padded-vert" style="height:200px;">
+    <h3><%= page.title %></h3>
+    <p><%= truncate(page.content, length: 80) %></p>
+    <%= link_to "Read more", page_path(page, :category => @category.id) %>
+  </div>
+</div>
+<% end %>
+
+</div>

@@ -1,0 +1,48 @@
+<div style="width: 1000px; max-width: 100%; margin-left:auto; margin-right:auto;">
+  <div style="clear:both; text-align:center;">
+
+        <% if @page.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+            <ul>
+            <% @page.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= form_for [@category, @page] do |f| %>
+
+         <div class="content">
+
+          <div class="control-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, :style => 'width:100%' %>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :content %>
+            <%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120 %>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :category %>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => false}) %>
+          </div>
+
+         </div>
+
+        <input type="hidden" name="url" id="url" value="<%= request.referer %>">
+        <%= f.hidden_field :user_id, :value => session[:user_id] %>
+
+        <div class="content">
+          <%= f.submit nil, :class => 'btn btn-primary' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")), request.referer, :class => 'btn' %>
+        </div>
+
+      <% end %>
+
+  </div>
+</div>

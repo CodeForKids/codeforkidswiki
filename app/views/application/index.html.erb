@@ -1,0 +1,5 @@
+<% @pages.each do |page| %>
+<h2><%= page.title %></h2>
+<p><%= page.content %></p>
+<%= link_to 'view', show_page_url(page) %>
+<% end %>

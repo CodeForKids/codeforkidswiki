@@ -1,0 +1,25 @@
+<nav class="right">
+  <ul class="left inline-list" id="menu">
+    <% if session[:user_id].nil? %>
+    <li class="hide-for-medium-down" ><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+    </li>
+    <% else %>
+    <li class="hide-for-medium-down" ><a href="/logout" target="_blank" title="logout">Logout</a>
+    </li>
+    <% end %>
+    <li class="hide-for-medium-down" ><a href="http://codeforkids.ca" target="_blank" title="To Code For Kids Site">Back to main site</a>
+    </li>
+    <li class="hide-for-medium-down padded-vert-small" ><a href="http://facebook.com/codeforkids" target="_blank" title="Like Code For Kids on Facebook"><i class="fa fa-facebook"></i></a>
+    </li>
+    <li class="hide-for-medium-down padded-vert-small"><a href="http://twitter.com/codeforkids" target="_blank" title="Follow Code For Kids on Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li class="hide-for-small">
+      <a class="button radius right small" href="/collections/all" title="Register Now">Register Now</a>
+    </li>
+    <li class="hide-for-medium-up">
+      <a href="http://twitter.com/codeforkids" target="_blank" title="Like Code For Kids on Facebook"><i class="fa fa-twitter"></i> &nbsp;Twitter</a>
+      <a href="http://facebook.com/codeforkids" target="_blank" title="Follow Code For Kids on Twitter"><i class="fa fa-facebook"></i> &nbsp;Facebook</a>
+      <a href="/collections/all" title="Register Now">Register Now</a>
+    </li>
+  </ul>
+</nav>

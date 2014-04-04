@@ -1,0 +1,22 @@
+<div class="row padded-vert">
+  <div class="panel callout">
+    <p>
+      This is a free wiki page Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget mi odio. Cras malesuada dolor quis ligula vestibulum euismod. Quisque eros odio, tempor a elit a, mattis gravida augue. Etiam ac placerat dolor. Fusce sollicitudin nibh imperdiet hendrerit egestas. Etiam euismod laoreet augue ac aliquam. Pellentesque sed facilisis leo.
+    </p>
+  </div>
+
+  <ul class="breadcrumbs">
+    <li><a href="/">Home</a></li>
+    <li><%= link_to @page.category.name, category_path(@page.category) %></li>
+    <li class="current"><%= @page.title %></li>
+  </ul>
+
+</div>
+
+<div class="row padded-vert-small">
+  <h2><%= @page.title %></h2>
+  <% if session[:user_id] %><%= link_to "Edit", edit_category_page_path(@page.category, @page) %><% end %>
+  <p>Last updated at <%= @page.updated_at %></p>
+  <hr>
+  <%= simple_format(@page.content) %>
+</div>
