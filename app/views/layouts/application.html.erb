@@ -57,10 +57,15 @@
         <div class="row">
           <div class="columns">
             <h1>Code For Kids Wiki</h1>
+            <h4 style="color:white">This is a free wiki system for Code For Kids Information</h4>
           </div>
         </div>
       </section>
       <!-- END SPLASH HEADER -->
+
+      <% if session[:user_id] %>
+              <%= render template: 'layouts/admin_bar' %>
+      <% end %>
 
       <div class="content">
         <div class="row">

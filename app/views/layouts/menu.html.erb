@@ -1,13 +1,6 @@
 <nav class="right">
   <ul class="left inline-list" id="menu">
-    <% if session[:user_id].nil? %>
-    <li class="hide-for-medium-down" ><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
-    </li>
-    <% else %>
-    <li class="hide-for-medium-down" ><a href="/logout" title="logout">Logout</a>
-    </li>
-    <% end %>
-    <li class="hide-for-medium-down" ><a href="http://codeforkids.ca" target="_blank" title="To Code For Kids Site">Back to main site</a>
+    <li class="hide-for-medium-down" ><a href="http://codeforkids.ca" target="_blank" title="To Code For Kids Site">Go To Code For Kids</a>
     </li>
     <li class="hide-for-medium-down padded-vert-small" ><a href="http://facebook.com/codeforkids" target="_blank" title="Like Code For Kids on Facebook"><i class="fa fa-facebook"></i></a>
     </li>

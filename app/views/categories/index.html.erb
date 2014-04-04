@@ -1,10 +1,4 @@
 <div class="row padded-vert">
-  <%= render template: 'layouts/alert' %>
-</div>
-
-<% if session[:user_id] %><p><%= link_to "New category", new_category_path %></p><% end %>
-
-<div class="row padded-vert">
 
 <% @categories.each do |category| %>
 <div class="medium-3 columns" style="float:left;">

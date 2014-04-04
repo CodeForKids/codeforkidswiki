@@ -1,0 +1,14 @@
+<div class="contain-to-grid">
+  <nav class="top-bar" data-topbar>
+    <ul class="sub-nav">
+      <li><%= link_to "New Category", new_category_path %></li>
+      <% if @category && !@category.new_record? %><li><%= link_to "Edit Category", edit_category_path(@category) %></li><% end %>
+      <% if @category && !@category.new_record? %><li><%= link_to "New Page", new_category_page_path(@category) %></li><% end %>
+      <% if @page && !@page.new_record? && @page.category %><li><%= link_to "New Page", new_category_page_path(@page.category) %></li><% end %>
+      <% if @page && !@page.new_record? %><li><%= link_to "Edit Page", edit_category_page_path(@page.category, @page) %></li><% end %>
+      <li class="hide-for-medium-down" ><a href="/logout" title="logout">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+
+

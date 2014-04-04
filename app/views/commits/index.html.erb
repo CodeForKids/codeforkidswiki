@@ -1,13 +1,10 @@
 <div class="row padded-vert">
-  <%= render template: 'layouts/alert' %>
-
   <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
     <li><%= link_to @page.category.name, category_path(@page.category) %></li>
     <li><%= link_to @page.title, category_page_path(@page.category, @page) %></li>
     <li class="current">Commit History</li>
   </ul>
-
 </div>
 
 

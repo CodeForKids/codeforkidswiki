@@ -18,6 +18,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), root_url, :class => 'button radius secondary' %>
+    <%= f.submit nil, :class => 'button radius bg-blue' %>
   </div>
 <% end %>

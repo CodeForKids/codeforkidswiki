@@ -31,12 +31,6 @@
     </div>
     <!-- END FOOTER WIDGET 1 -->
 
-    <!-- START FOOTER WIDGET 2 -->
-    <div class="medium-6 large-3 columns">
-      &nbsp;
-    </div>
-    <!-- END FOOTER WIDGET 2 -->
-
     <!-- START FOOTER WIDGET 3 -->
     <div class="medium-6 large-3 columns">
       <h4>Pages &amp; Resources</h4>
@@ -60,6 +54,10 @@
         <li><a href="/pages/privacy-policy" class="menu-link" title="Go To Code For Kids Privacy Policy">Privacy Policy</a>
         </li>
 
+        <% if session[:user_id].nil? %>
+          <li class="hide-for-medium-down" ><%= link_to "Admin Sign in", user_omniauth_authorize_path(:google_oauth2) %></li>
+        <% end %>
+
       </ul>
     </div>
     <!-- END FOOTER WIDGET 3 -->
@@ -80,12 +78,13 @@
         </li>
       </ul>
       <!-- END FOOTER CONNECT -->
-
-      <h4>Contact Us</h4>
-      <a href="mailto:contact@codeforkids.ca">contact@codeforkids.ca</a>
-
     </div>
     <!-- END FOOTER WIDGET 4 -->
+
+    <div class="medium-6 large-3 columns">
+      <h4>Contact Us</h4>
+      <a href="mailto:contact@codeforkids.ca">contact@codeforkids.ca</a>
+    </div>
 
   </div>
 </footer>

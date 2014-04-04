@@ -11,3 +11,20 @@
  *= require_self
  *= require_tree .
  */
+
+#recent-commits {
+  list-style: decimal;
+  text-align: left;
+}
+
+#recent-commits li {
+  padding-bottom: 8px;
+}
+
+#post {
+  padding-top: 0 !important;
+}
+
+.padded-top {
+  padding-top: 2.0em;
+}

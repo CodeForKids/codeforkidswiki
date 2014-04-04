@@ -1,4 +1,10 @@
-<h1> Editing page </h1>
-<%= link_to "Cancel", [@page.category, @page] %>
+<div class="row padded-vert">
+  <ul class="breadcrumbs">
+    <li><a href="/">Home</a></li>
+    <li class="current"><%= link_to "Editing Page:" + @page.title, category_page_path(@page.category, @page) %></li>
+  </ul>
+</div>
 
-<%= render 'form' %>
+<div class="padded-vert-small">
+  <%= render 'form' %>
+</div>

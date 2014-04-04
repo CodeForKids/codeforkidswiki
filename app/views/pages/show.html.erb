@@ -1,5 +1,4 @@
-<div class="row padded-vert">
-  <%= render template: 'layouts/alert' %>
+<div class="row padded-top">
 
   <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
@@ -9,14 +8,36 @@
 
 </div>
 
-<div class="row padded-vert-small">
-  <h2><%= @page.title %></h2>
-  <% if session[:user_id] %>
-    <%= link_to "Edit", edit_category_page_path(@page.category, @page) %>
-    &nbsp;
-    <%= link_to "History", category_page_commits_path(@page.category, @page) %>
-  <% end %>
-  <p>Last updated at <%= @page.updated_at %></p>
-  <hr>
-  <%= simple_format(@page.content) %>
-</div>
+<section class="row" id="post">
+
+    <div class="large-9 columns padded-vert">
+      <h1><%= @page.title %></h1>
+      <p class="date">Updated last on <time pubdate="" datetime="<%= @page.updated_at.to_formatted_s(:long) %>"><%= @page.updated_at.to_formatted_s(:long) %></time></p>
+      <%= @page.content %>
+    </div>
+
+    <aside class="large-3 padded-vert padded-horiz columns" id="sidebar-single_post">
+      <div class="row">
+        <div class="medium-6 large-12 columns" id="sidebar-author">
+            <div class="row">
+                  <div class="small-4 large-12 columns">
+                    <img class="img-round" src="<%= gravatar(@page.latest_committer.email) %>" alt="<%= @page.latest_committer.username %>">
+                  </div>
+                  <div class="small-8 large-12 columns">
+                    <h4>Latest commit by <%= @page.latest_committer.username %></h4>
+                    <h6>There have been <%= @page.commits.count %> commits on this page.</h6>
+                    <hr>
+                    <p><b>Recent Commits</b><br>
+                    <%= link_to "View Full History", category_page_commits_path(@page.category, @page) %></p>
+                    <ul id="recent-commits">
+                      <% @page.commits.limit(5).each do |commit| %>
+                        <li><%= commit.user.username %> committed on <%= commit.updated_at.to_formatted_s(:short) %></li>
+                      <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    </aside>
+
+</section>

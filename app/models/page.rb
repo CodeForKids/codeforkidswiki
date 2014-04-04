@@ -12,6 +12,10 @@ class Page  < ActiveRecord::Base
 
   after_create :create_commit
 
+  def latest_committer
+    self.commits.first.user
+  end
+
   private
 
   def create_commit

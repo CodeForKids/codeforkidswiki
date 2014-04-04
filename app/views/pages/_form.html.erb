@@ -39,9 +39,9 @@
 
          </div>
 
-        <div class="content">
-          <%= f.submit nil, :class => 'btn btn-primary' %>
-          <%= link_to t('.cancel', :default => t("helpers.links.cancel")), request.referer, :class => 'btn' %>
+        <div class="submit">
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")), category_path(@category), :class => 'button radius secondary' %>
+          <%= f.submit nil, :class => 'button radius bg-blue' %>
         </div>
 
       <% end %>
