@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  def ping
+    render inline: "ACK"
+  end
+
 end
