@@ -11,7 +11,11 @@
 
 <div class="row padded-vert-small">
   <h2><%= @page.title %></h2>
-  <% if session[:user_id] %><%= link_to "Edit", edit_category_page_path(@page.category, @page) %><% end %>
+  <% if session[:user_id] %>
+    <%= link_to "Edit", edit_category_page_path(@page.category, @page) %>
+    &nbsp;
+    <%= link_to "History", category_page_commits_path(@page.category, @page) %>
+  <% end %>
   <p>Last updated at <%= @page.updated_at %></p>
   <hr>
   <%= simple_format(@page.content) %>

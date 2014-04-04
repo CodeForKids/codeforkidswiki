@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404051535) do
+ActiveRecord::Schema.define(version: 20140404160634) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.boolean  "admin"
     t.binary   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "commits", force: true do |t|
+    t.integer  "page_id"
+    t.integer  "user_id"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,7 +62,7 @@ ActiveRecord::Schema.define(version: 20140404051535) do
     t.string   "avatar",                 default: "", null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

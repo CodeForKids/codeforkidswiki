@@ -23,6 +23,7 @@ include ApplicationHelper
     session[:user_id] = @user.id
     session[:user_email] = @user.email
     flash[:notify] = "Signed in Through Google!"
+    User.current_user = @user
   end
 
 end

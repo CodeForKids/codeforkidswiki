@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   root 'categories#index'
   get '/logout' => 'application#logout'
@@ -18,7 +19,9 @@ Rails.application.routes.draw do
   # end
 
   resources :categories do
-    resources :pages
+    resources :pages do
+      resources :commits
+    end
   end
 
 end

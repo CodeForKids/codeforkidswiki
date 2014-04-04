@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   include ApplicationHelper
   before_action :check_admin, only: [:new, :edit, :update, :destroy]
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :history]
   before_action :set_category, only: [:new, :edit]
 
   # GET /pages
@@ -25,6 +25,10 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
+  end
+
+  def history
+    @commits = Commit.where(:page => @page)
   end
 
   # POST /pages
@@ -68,9 +72,11 @@ class PagesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find(params[:id])
+      current_user
     end
 
     def set_category
