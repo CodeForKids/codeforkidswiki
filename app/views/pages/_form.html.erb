@@ -16,7 +16,7 @@
         <% url = create_page_path(@page) if @page.new_record? %>
         <% url = update_page_path(@page.id) if !@page.new_record? %>
 
-        <%= form_for @page, url: url do |f| %>
+        <%= form_for @page, url: url, :html => { :multipart => true } do |f| %>
 
          <div class="content">
 
@@ -42,7 +42,7 @@
 
          </div>
 
-        <div class="submit">
+        <div class="submit padded-vert-small">
           <%= link_to t('.cancel', :default => t("helpers.links.cancel")), root_url, :class => 'button radius secondary' %>
           <%= f.submit nil, :class => 'button radius bg-blue' %>
         </div>
@@ -51,3 +51,5 @@
 
   </div>
 </div>
+
+<%= tinymce %>

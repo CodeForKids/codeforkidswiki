@@ -14,10 +14,6 @@
 
 /* == GENERAL == */
 
-.no-pages a:hover, #sidebar-single_post a:hover {
-  background-color: transparent !important;
-}
-
 .padded-top {
   padding-top: 2.0em;
 }
