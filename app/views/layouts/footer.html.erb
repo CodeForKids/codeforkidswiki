@@ -36,26 +36,26 @@
       <h4>Pages &amp; Resources</h4>
       <ul>
 
-        <li class="active"><a href="/pages/about" class="menu-link" title="Go To Code For Kids About Code For Kids">About Code For Kids</a>
+        <li class="active"><a href="http://codeforkids.ca/pages/about" class="menu-link" title="Go To Code For Kids About Code For Kids">About Code For Kids</a>
         </li>
 
-        <li><a href="/pages/design-guidelines" class="menu-link" title="Go To Code For Kids Brand Guidelines">Brand Guidelines</a>
+        <li><a href="http://codeforkids.ca/pages/design-guidelines" class="menu-link" title="Go To Code For Kids Brand Guidelines">Brand Guidelines</a>
         </li>
 
-        <li><a href="/pages/about#about-press" class="menu-link" title="Go To Code For Kids Media/Press Information">Media/Press Information</a>
+        <li><a href="http://codeforkids.ca/pages/about#about-press" class="menu-link" title="Go To Code For Kids Media/Press Information">Media/Press Information</a>
         </li>
 
-        <li><a href="/pages/about#sponsors" class="menu-link" title="Go To Code For Kids Become a Sponsor">Become a Sponsor</a>
+        <li><a href="http://codeforkids.ca/pages/about#sponsors" class="menu-link" title="Go To Code For Kids Become a Sponsor">Become a Sponsor</a>
         </li>
 
         <li><a href="http://codebykids.ca" class="menu-link" title="Go To Code For Kids Kids' Project Pages">Kids' Project Pages</a>
         </li>
 
-        <li><a href="/pages/privacy-policy" class="menu-link" title="Go To Code For Kids Privacy Policy">Privacy Policy</a>
+        <li><a href="http://codeforkids.ca/pages/privacy-policy" class="menu-link" title="Go To Code For Kids Privacy Policy">Privacy Policy</a>
         </li>
 
         <% if session[:user_id].nil? %>
-          <li class="hide-for-medium-down" ><%= link_to "Admin Sign in", user_omniauth_authorize_path(:google_oauth2) %></li>
+          <li><%= link_to "Admin Sign in", user_omniauth_authorize_path(:google_oauth2) %></li>
         <% end %>
 
       </ul>

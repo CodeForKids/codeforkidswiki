@@ -49,7 +49,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to category_pages_url(@category) }
+      format.html { redirect_to category_url(@category) }
       format.json { head :no_content }
     end
   end

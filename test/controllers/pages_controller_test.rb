@@ -72,6 +72,6 @@ class PagesControllerTest < ActionController::TestCase
       delete :destroy, { id: @page, category_id: @category.id }
     end
 
-    assert_redirected_to category_pages_path(@category)
+    assert_redirected_to category_path(@category)
   end
 end
