@@ -10,15 +10,11 @@
 
     <%= render template: 'layouts/meta' %>
 
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-
     <!-- STYLESHEETS -->
     <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/normalize.css?20742" rel="stylesheet" type="text/css" media="all">
     <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/font-awesome.min.css?20742" rel="stylesheet" type="text/css" media="all">
     <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/foundation.min.css?20742" rel="stylesheet" type="text/css" media="all">
-    <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/global.scss.css?20742" rel="stylesheet" type="text/css" media="all">
+    <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/global.scss.css?21144" rel="stylesheet" type="text/css" media="all">
     <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/overrides.css?20742" rel="stylesheet" type="text/css" media="all">
     <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/slicknav.css?20742" rel="stylesheet" type="text/css" media="all">
     <link href="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/timeline.css?20742" rel="stylesheet" type="text/css" media="all">
@@ -32,6 +28,10 @@
     <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
@@ -83,6 +83,7 @@
 
     <script src="//cdn.shopify.com/s/files/1/0359/5777/t/6/assets/jquery.slicknav.min.js?20742" type="text/javascript"></script>
     <script>
+      $('#admin-menu').slicknav({ label: 'ADMIN', prependTo: '.contain-to-grid' });
       $('#menu').slicknav();
     </script>
 

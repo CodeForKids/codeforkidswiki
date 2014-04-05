@@ -1,6 +1,6 @@
-<div class="contain-to-grid">
+<div class="contain-to-grid admin-menu">
   <nav class="top-bar" data-topbar>
-    <ul class="sub-nav">
+    <ul class="sub-nav" id="admin-menu">
       <li><%= link_to "New Category", new_category_path %></li>
 
       <% if @category && !@category.new_record? && @page.nil? %>
