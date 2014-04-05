@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-CfkWiki::Application.config.secret_key_base = '84d5e32f289193f08301175fa0d777b5c0cfcff74a2e7658fbd3c9022160bf9f0f0b83e0b1853f815dacd82b2dd94f8a37a60adcf41d3a867dc64fb4f3eaa6ea'
+CfkWiki::Application.config.secret_key_base = ENV['SECRET_TOKEN']
