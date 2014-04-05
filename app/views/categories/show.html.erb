@@ -1,4 +1,4 @@
-<div class="row padded-vert">
+<div class="row padded-vert-small">
 
   <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
@@ -7,15 +7,26 @@
 
 </div>
 
-<div class="row padded-vert-small">
+<div class="row">
 
 <% @pages.each do |page| %>
-<div class="medium-3 columns"  style="float:left !important">
-  <div class="panel padded-vert" style="height:200px;">
-    <h3><%= page.title %></h3>
-    <p><%= truncate(page.content, length: 57) %></p>
-    <%= link_to "Read more", [@category, page] %>
+<div class="medium-4 columns page-panel padded-vert-small">
+  <div class="top-image"><img src="http://cdn.shopify.com/s/files/1/0223/1913/t/8/assets/slideshow_1.jpg?15231" style="margin-top: -32px;" alt=""></div>
+  <%= link_to page_path(@category.handle, page.handle) do %>
+    <div class="small-12 columns text-center">
+      <h3><%= page.title %></h3>
+      <p><%= truncate(page.content, length: 100) %></p>
+      <span>Read More</span>
+    </div>
+  <% end %>
   </div>
+<% end %>
+
+<% if @pages.count == 0 %>
+<div class="small-12 columns text-center no-pages">
+  <p><i class="fa fa-files-o fa-5x"></i></p>
+  <h5>There doesn't seem to be any pages here yet.</h5>
+  <p><%= link_to 'Return Home', root_url %></p>
 </div>
 <% end %>
 

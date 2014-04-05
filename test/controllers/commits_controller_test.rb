@@ -9,7 +9,7 @@ class CommitsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index, { :page_id => @page, :category_id => @category }
+    get :index, { :page_handle => @page.handle, :handle => @category.handle }
     assert_response :success
     assert_not_nil assigns(:commits)
   end

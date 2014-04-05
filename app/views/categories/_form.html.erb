@@ -1,4 +1,7 @@
-<%= form_for(@category) do |f| %>
+<% url = create_category_path(@category) if @category.new_record? %>
+<% url = update_category_path(@category.id) if !@category.new_record? %>
+
+<%= form_for @category, url: url do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -15,6 +18,12 @@
   <div class="control-group">
     <%= f.label :name %>
     <%= f.text_field :name, :style => 'width:100%' %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :fontawesome %>
+    <small>Put the name of the icon you would like to see. You can find them <a href="http://fontawesome.io/icons/" target="_blank">here.</a></small>
+    <%= f.text_field :fontawesome, :style => 'width:100%' %>
   </div>
 
   <div class="actions">

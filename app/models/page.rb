@@ -10,13 +10,20 @@ class Page  < ActiveRecord::Base
   validates_presence_of :category
   validates_presence_of :commit_message
 
+  validates_uniqueness_of :title
+
   after_create :create_commit
+  before_save :change_handle
 
   def latest_committer
     self.commits.first.user
   end
 
   private
+
+  def change_handle
+   self.handle = self.title.parameterize
+  end
 
   def create_commit
     commit = Commit.new

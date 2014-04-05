@@ -25,7 +25,7 @@ class CategoriesControllerTest < ActionController::TestCase
     category = assigns(:category)
     assert_equal 'NEW Category', category.name
 
-    assert_redirected_to category_path(category)
+    assert_redirected_to show_category_path(category.handle)
   end
 
   test "should not create category without name" do
@@ -34,13 +34,19 @@ class CategoriesControllerTest < ActionController::TestCase
     end
   end
 
+  test "should not create category without unique name" do
+    assert_no_difference('Category.count') do
+      post :create, { :category => { :name => @category.name } }
+    end
+  end
+
   test "should show category" do
-    get :show, id: @category
+    get :show, handle: @category.handle
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @category
+    get :edit, handle: @category.handle
     assert_response :success
   end
 
@@ -50,14 +56,14 @@ class CategoriesControllerTest < ActionController::TestCase
     category = assigns(:category)
     assert_equal 'UPDATE Category', category.name
 
-    assert_redirected_to category_path(category)
+    assert_redirected_to show_category_path(category.handle)
   end
 
   test "should destroy category" do
     assert_difference('Category.count', -1) do
-      delete :destroy, id: @category
+      delete :destroy, handle: @category.handle
     end
 
-    assert_redirected_to categories_path
+    assert_redirected_to root_url
   end
 end

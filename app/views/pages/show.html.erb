@@ -1,14 +1,14 @@
-<div class="row padded-top">
+<div class="row padded-vert-small">
 
   <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
-    <li><%= link_to @page.category.name, category_path(@page.category) %></li>
+    <li><%= link_to @page.category.name, show_category_path(@page.category.handle) %></li>
     <li class="current"><%= @page.title %></li>
   </ul>
 
 </div>
 
-<section class="row" id="post">
+<section class="row" id="page">
 
     <div class="large-9 columns padded-vert">
       <h1><%= @page.title %></h1>
@@ -28,7 +28,7 @@
                     <h6>There have been <%= @page.commits.count %> commits on this page.</h6>
                     <hr>
                     <p><b>Recent Commits</b><br>
-                    <%= link_to "View Full History", category_page_commits_path(@page.category, @page) %></p>
+                    <%= link_to "View Full History", page_commits_path %></p>
                     <ul id="recent-commits">
                       <% @page.commits.limit(5).each do |commit| %>
                         <li><%= commit.user.username %> committed on <%= commit.updated_at.to_formatted_s(:short) %></li>

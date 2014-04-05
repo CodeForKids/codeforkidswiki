@@ -13,7 +13,10 @@
           </div>
         <% end %>
 
-        <%= form_for [Category.find(params[:category_id]), @page] do |f| %>
+        <% url = create_page_path(@page) if @page.new_record? %>
+        <% url = update_page_path(@page.id) if !@page.new_record? %>
+
+        <%= form_for @page, url: url do |f| %>
 
          <div class="content">
 

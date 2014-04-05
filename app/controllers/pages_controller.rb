@@ -13,6 +13,7 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new
+    @category = Category.find_by(handle: params[:handle])
   end
 
   def edit
@@ -23,7 +24,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to category_page_path(@page.category, @page), notice: 'Page was successfully created.' }
+        format.html { redirect_to show_category_path(@page.category.handle), notice: 'Page was successfully created.' }
         format.json { render action: 'show', status: :created, location: @page }
       else
         format.html { render action: 'new' }
@@ -33,11 +34,10 @@ class PagesController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if @page.update(page_params)
         update_commit
-        format.html { redirect_to category_page_path(@page.category, @page), notice: 'Page was successfully updated.' }
+        format.html { redirect_to page_path(@page.category.handle, @page.handle), notice: 'Page was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -49,7 +49,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to category_url(@category) }
+      format.html { redirect_to show_category_path(@category.handle) }
       format.json { head :no_content }
     end
   end
@@ -66,11 +66,11 @@ private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_page
-    @page = Page.find(params[:id])
+    @page = Page.find_by(handle: params[:page_handle]) || Page.find(params[:id])
   end
 
   def set_category
-    @category = Category.find(params[:category_id])
+    @category = Category.find_by(handle: params[:handle])
   end
 
   def set_category_page

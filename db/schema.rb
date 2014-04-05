@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404160634) do
+ActiveRecord::Schema.define(version: 20140405150223) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.boolean  "admin"
-    t.binary   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "handle"
+    t.string   "fontawesome", default: "fa-chevron-right", null: false
   end
 
   create_table "commits", force: true do |t|

@@ -1,8 +1,8 @@
-<div class="row padded-vert">
+<div class="row padded-vert-small">
   <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
-    <li><%= link_to @page.category.name, category_path(@page.category) %></li>
-    <li><%= link_to @page.title, category_page_path(@page.category, @page) %></li>
+    <li><%= link_to @page.category.name, show_category_path(@page.category.handle) %></li>
+    <li><%= link_to @page.title, page_path(@page.category.handle, @page.handle) %></li>
     <li class="current">Commit History</li>
   </ul>
 </div>

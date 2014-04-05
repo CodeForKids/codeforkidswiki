@@ -12,6 +12,23 @@
  *= require_tree .
  */
 
+/* == GENERAL == */
+
+.no-pages a:hover, #sidebar-single_post a:hover {
+  background-color: transparent !important;
+}
+
+.padded-top {
+  padding-top: 2.0em;
+}
+
+.padded-top-small {
+  padding-top: 0.4em;
+}
+
+
+/* == COMMITS == */
+
 #recent-commits {
   list-style: decimal;
   text-align: left;
@@ -21,10 +38,55 @@
   padding-bottom: 8px;
 }
 
-#post {
+/* == PAGE == */
+
+#page {
   padding-top: 0 !important;
 }
 
-.padded-top {
-  padding-top: 2.0em;
+#sidebar-single_post {
+  margin-bottom: 50px;
+}
+
+/* == CATEGORIES == */
+
+.page-panel {
+  border-radius: 3px;
+}
+
+.page-panel > a > div {
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  padding:20px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.page-panel > .top-image {
+  height:50px;
+  overflow: hidden;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.category-panel, .page-panel {
+  float:left !important;
+}
+
+.category-panel i, .page-panel i {
+  color: #469ad0;
+}
+
+.category-panel span, .page-panel span {
+  color: #ec7331;
+}
+
+.category-panel > a > div, .page-panel > a > div {
+  height:200px;
+  color: #000100;
+}
+
+.category-panel > a > div:hover, .page-panel > a > div:hover {
+  border-radius: 3px;
+  background: #f2f7fa;
+  border: 1px #d9dee1 solid;
 }

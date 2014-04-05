@@ -1,7 +1,9 @@
 one:
   id: 1
   name: "Category"
+  handle: "category-1"
 
 two:
   id: 2
   name: "Category 2"
+  handle: "category-2"
