@@ -19,8 +19,12 @@ class Page  < ActiveRecord::Base
     self.commits.first.user
   end
 
+  def last_updated
+    self.updated_at.to_formatted_s(:short)
+  end
+
   def preview
-    ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content).gsub(/&nbsp;/i,""), length: 100)
+    ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content).gsub(/&nbsp;/i,""), length: 300)
   end
 
   private

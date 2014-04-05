@@ -24,6 +24,7 @@ gem 'omniauth-google-oauth2'
 
 #TinyMCE for pages
 gem 'tinymce-rails'
+gem 'will_paginate'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
