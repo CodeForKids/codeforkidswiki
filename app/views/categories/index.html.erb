@@ -4,7 +4,7 @@
 <div class="medium-3 columns" style="float:left;">
   <div class="panel padded-vert" style="height:200px;">
     <h3><%= category.name %></h3>
-    <p>There are <%= category.pages.count %> articles in this category</p>
+    <p>There are <%= category.pages.count %> <%= pluralize(category.pages.count, "article") %> in this category</p>
     <%= link_to "View category", category %>
   </div>
 </div>

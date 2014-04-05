@@ -11,5 +11,10 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
+  def setup_controller_tests
+    session[:user_id] = 1
+    session[:user_email] = 'test@codeforkids.ca'
+  end
+
   # Add more helper methods to be used by all tests here...
 end
