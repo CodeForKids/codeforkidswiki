@@ -7,7 +7,7 @@
 
 </div>
 
-<div class="row">
+<div class="row padded-bottom">
 
 <% @pages.each do |page| %>
 <div class="medium-4 columns page-panel padded-vert-small">
@@ -15,7 +15,7 @@
   <%= link_to page_path(@category.handle, page.handle) do %>
     <div class="small-12 columns text-center">
       <h3><%= page.title %></h3>
-      <p><%= truncate(page.content, length: 100) %></p>
+      <p><%= page.preview %></p>
       <span>Read More</span>
     </div>
   <% end %>

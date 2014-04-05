@@ -19,6 +19,10 @@ class Page  < ActiveRecord::Base
     self.commits.first.user
   end
 
+  def preview
+    ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content).gsub(/&nbsp;/i,""), length: 100)
+  end
+
   private
 
   def change_handle
