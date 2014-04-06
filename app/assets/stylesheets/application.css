@@ -15,6 +15,10 @@
 
 /* == GENERAL == */
 
+#hdr-logo {
+height: 3.5em;
+}
+
 .menu-padded-vert {
   padding-top: 1.4em;
   padding-bottom: 1.0em;

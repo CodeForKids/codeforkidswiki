@@ -19,6 +19,7 @@
 
 $(function() {
   $('#st-search-input').swiftype({
+    resultContainingElement: "#st-results-container",
     searchFields: {'page': ['title','content']},
     engineKey: '<%= ENV['SWIFTYPE_ENGINE_KEY'] %>',
     renderFunction: customRenderFunction

@@ -23,7 +23,7 @@ class Page  < ActiveRecord::Base
   end
 
   def last_updated
-    self.updated_at.to_formatted_s(:short)
+    self.updated_at.to_formatted_s(:long)
   end
 
   def preview
@@ -34,7 +34,7 @@ class Page  < ActiveRecord::Base
   private
 
   def enqueue_create_or_update_document_job
-    Delayed::Job.enqueue CreateOrUpdateSwiftypeDocumentJob.new(self.id)
+    Delayed::Job.enqueue UpdateSwiftypeJob.new(self.id)
   end
 
   def enqueue_delete_document_job
