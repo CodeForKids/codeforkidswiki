@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require_tree .
 //= require tinymce
+//= require jquery.swifttype.autocomplete
+
+$(function() {
+  $('#st-search-input').swiftype({
+    searchFields: {'page': ['title','content']},
+    engineKey: '<%= ENV['SWIFTYPE_ENGINE_KEY'] %>',
+    renderFunction: customRenderFunction
+  });
+});
+
+var customRenderFunction = function(document_type, item) {
+    var out = '<p class="title">' + item['title'] + '</p>';
+    out = out.concat('<p class="category">Category: ' + item['category'] + '</p>');
+    out = out.concat('<p class="updated_at">Updated last: ' + item['updated_at'] + '</p>');
+    return out;
+};

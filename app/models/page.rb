@@ -15,6 +15,9 @@ class Page  < ActiveRecord::Base
   after_create :create_commit
   before_save :change_handle
 
+  after_save :enqueue_create_or_update_document_job
+  after_destroy :enqueue_delete_document_job
+
   def latest_committer
     self.commits.first.user
   end
@@ -27,7 +30,16 @@ class Page  < ActiveRecord::Base
     ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content).gsub(/&nbsp;/i,""), length: 300)
   end
 
+
   private
+
+  def enqueue_create_or_update_document_job
+    Delayed::Job.enqueue CreateOrUpdateSwiftypeDocumentJob.new(self.id)
+  end
+
+  def enqueue_delete_document_job
+    Delayed::Job.enqueue DeleteSwiftypeDocumentJob.new(self.id)
+  end
 
   def change_handle
    self.handle = self.title.parameterize

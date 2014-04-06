@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require autocomplete
  */
 
 /* == GENERAL == */
@@ -38,6 +39,12 @@
 
 .admin-menu .slicknav_nav a {
   color: white !important;
+}
+
+/* == SEARCH == */
+
+.splash-about form {
+  padding-top: 20px;
 }
 
 /* == COMMITS == */

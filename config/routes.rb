@@ -1,3 +1,5 @@
+Rails.application.routes.default_url_options[:host] = 'wiki.codeforkids.ca'
+
 Rails.application.routes.draw do
 
 

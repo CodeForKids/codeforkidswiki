@@ -39,6 +39,10 @@ gem 'rails_12factor', group: :production
 gem 'unicorn'
 gem 'newrelic_rpm'
 
+#Searching
+gem 'swiftype', '~> 1.0.0'
+gem 'delayed_job_active_record'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
