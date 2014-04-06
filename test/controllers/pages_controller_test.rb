@@ -13,6 +13,13 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should redirect to root without login' do
+    session[:user_id] = nil
+    get :edit,  { :category_id => @category.id, :id => @page }
+    assert_response :redirect
+    assert_redirected_to root_url
+  end
+
   test "should create page" do
     assert_difference ['Page.count','Commit.count'] do
       post :create, { handle: @category.handle, page: {  title: 'Name', commit_message: 'Commit', content: 'Content', category: @category.id, category_id: @category.id } }
@@ -69,9 +76,17 @@ class PagesControllerTest < ActionController::TestCase
 
     assert_equal 'NEW NAME', page.title
     assert_equal 'New content', page.content
+    assert_equal 'new-name', page.handle
     assert_equal 2, page.commits.count
 
     assert_redirected_to page_path(@category.handle, page.handle)
+  end
+
+  test "should fail to update page without title" do
+    assert_no_difference 'Commit.count' do
+      patch :update, { :category_id => @category.id, :id => @page, page: {  title: '', commit_message: 'Commit', content: 'New content', category: @category.id, category_id: @category.id  } }
+    end
+    assert_template :edit
   end
 
   test "should destroy page" do

@@ -30,7 +30,6 @@ class Page  < ActiveRecord::Base
     ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content).gsub(/&nbsp;/i,""), length: 300)
   end
 
-
   private
 
   def enqueue_create_or_update_document_job

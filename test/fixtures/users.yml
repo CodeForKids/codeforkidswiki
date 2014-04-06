@@ -13,5 +13,5 @@ two:
   first_name: 'Julian'
   last_name: 'Nadeau'
   username: 'Julian Nadeau'
-  email: 'test2@code-for-kids.com'
+  email: 'julian@code-for-kids.com'
   provider: 'contact@code-for-kids.com'

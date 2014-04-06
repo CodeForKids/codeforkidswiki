@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'rails_12factor', group: :production
 gem 'unicorn'
 gem 'newrelic_rpm'
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 #Searching
 gem 'swiftype', '~> 1.0.0'

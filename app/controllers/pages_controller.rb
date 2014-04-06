@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy, :history]
   before_action :set_category, only: [:new, :edit, :destroy]
 
-
   def show
   end
 
@@ -71,11 +70,6 @@ private
 
   def set_category
     @category = Category.find_by(handle: params[:handle])
-  end
-
-  def set_category_page
-    @pages = Page.where(:category_id => params[:category])
-    @category = Category.find(params[:category])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -55,8 +55,14 @@ class CategoriesControllerTest < ActionController::TestCase
 
     category = assigns(:category)
     assert_equal 'UPDATE Category', category.name
+    assert_equal 'update-category', category.handle
 
     assert_redirected_to show_category_path(category.handle)
+  end
+
+  test "should fail to update category without name" do
+    patch :update, { :id => @category, :category => { :name => '' } }
+    assert_template :edit
   end
 
   test "should destroy category" do

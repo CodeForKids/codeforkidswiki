@@ -1,12 +1,14 @@
 
 one:
   title: "Page 1"
-  content: "TESTING"
+  content: "Lorem ipsum dolor sit amet, <br><b>consectetur adipiscing elit.</b>est imperdiet, sed mattis nisl porttitor. Vivamus accumsan vitae urna et pellentesque. Cras fringilla ultricies neque, quis eleifend mauris dignissim quis. Proin posuere diam bibendum elit feugiat cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget mi odio. Cras malesuada dolor quis ligula vestibulum euismod. Quisque eros odio, tempor a elit a, mattis gravida augue. Etiam ac placerat dolor. Fusce sollicitudin nibh imperdiet hendrerit egestas. Etiam euismod laoreet augue ac aliquam. Pellentesque sed facilisis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget mi odio. Cras malesuada dolor quis ligula vestibulum euismod. Quisque eros odio, tempor a elit a, mattis gravida augue. Etiam ac placerat dolor. Fusce sollicitudin nibh imperdiet hendrerit egestas. Etiam euismod laoreet augue ac aliquam. Pellentesque sed facilisis leo."
   handle: "page-1"
   category_id: 1
+  updated_at: <%= DateTime.new(2014,1,1, 0, 0, 0, 0) %>
 
 two:
   title: "Page 2"
   content: "TESTING"
   handle: "page-2"
   category_id: 2
+  updated_at: <%= DateTime.new(2014,1,1, 0, 0, 0, 0) %>
