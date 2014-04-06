@@ -21,36 +21,25 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to show_category_path(@page.category.handle), notice: 'Page was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @page }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.save
+      redirect_to show_category_path(@page.category.handle), notice: 'Page was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @page.update(page_params)
-        update_commit
-        format.html { redirect_to page_path(@page.category.handle, @page.handle), notice: 'Page was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.update(page_params)
+      update_commit
+      redirect_to page_path(@page.category.handle, @page.handle), notice: 'Page was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   def destroy
     @page.destroy
-    respond_to do |format|
-      format.html { redirect_to show_category_path(@category.handle) }
-      format.json { head :no_content }
-    end
+    redirect_to show_category_path(@category.handle)
   end
 
 private
@@ -63,7 +52,6 @@ private
     commit.save!
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_page
     @page = Page.find_by(handle: params[:page_handle]) || Page.find(params[:id])
   end
@@ -72,7 +60,6 @@ private
     @category = Category.find_by(handle: params[:handle])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def page_params
     params.require(:page).permit(:title,:content,:category_id,:commit_message)
   end
