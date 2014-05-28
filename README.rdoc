@@ -1,6 +1,7 @@
 == Code For Kids Wiki
 
 {<img src="https://codeclimate.com/repos/533f74e269568009950b92b0/badges/6091994f735bcf16a9c6/gpa.png" />}[https://codeclimate.com/repos/533f74e269568009950b92b0/feed]
+{<img src="https://codeclimate.com/repos/533f74e269568009950b92b0/badges/6091994f735bcf16a9c6/coverage.png" />}[https://codeclimate.com/repos/533f74e269568009950b92b0/feed]
 {<img src="https://semaphoreapp.com/api/v1/projects/33381ecc-8b20-48e4-bcf3-010197a588fc/163863/shields_badge.png" />}[https://semaphoreapp.com/jules2689/codeforkidswiki]
  
  1. Runs on Ruby on Rails
