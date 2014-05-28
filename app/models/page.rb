@@ -41,13 +41,15 @@ class Page  < ActiveRecord::Base
   private
 
   def enqueue_create_or_update_document_job
-    if published
+    if published and Rails.env.production?
       Delayed::Job.enqueue UpdateSwiftypeJob.new(self.id)
     end
   end
 
   def enqueue_delete_document_job
-    Delayed::Job.enqueue DeleteSwiftypeDocumentJob.new(self.id)
+    if Rails.env.production?
+      Delayed::Job.enqueue DeleteSwiftypeDocumentJob.new(self.id)
+    end
   end
 
   def change_handle
