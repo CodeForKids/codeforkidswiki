@@ -1,9 +1,8 @@
 class Page  < ActiveRecord::Base
   include ApplicationHelper
-  scope :published, -> { where(published: true) }
 
   belongs_to :category
-  counter_culture :category, column_name: Proc.new { |model| model.published ? "number_of_pages" : nil }
+  counter_culture :category, column_name: :number_of_pages
   has_many :commits
 
   attr_accessor :commit_message
@@ -21,11 +20,6 @@ class Page  < ActiveRecord::Base
   after_save :enqueue_create_or_update_document_job
   after_destroy :enqueue_delete_document_job
 
-  def publish
-    published = true
-    save(validate: false)
-  end
-
   def latest_committer
     self.commits.first.user
   end
@@ -41,7 +35,7 @@ class Page  < ActiveRecord::Base
   private
 
   def enqueue_create_or_update_document_job
-    if published and Rails.env.production?
+    if Rails.env.production?
       Delayed::Job.enqueue UpdateSwiftypeJob.new(self.id)
     end
   end

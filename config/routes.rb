@@ -21,7 +21,6 @@ Rails.application.routes.draw do
      get      'category/:handle/pages/new' => :new, :as => :new_page
      get      'pages/:id/edit' => :edit, :as => :edit_page
      get      'category/:handle/pages/:page_handle' => :show, :as => :page
-     put      'pages/:id/publish' => :publish_page, :as => :publish_page
      patch    'pages/:id' => :update
      put      'pages/:id' => :update, :as => :update_page
      delete   'category/:handle/pages/:page_handle' => :destroy, :as => :delete_page

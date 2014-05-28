@@ -1,7 +1,5 @@
 <div class="row padded-vert">
 
-<% if !session[:user_id].nil? %> <h3 class="text-center">Article counts include only published pages</h3><% end %>
-
 <% @categories.each do |category| %>
 <div class="large-4 medium-6 small-12 columns category-panel padded-vert-small">
   <%= link_to show_category_path(category.handle) do %>

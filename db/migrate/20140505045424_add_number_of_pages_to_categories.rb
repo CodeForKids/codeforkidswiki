@@ -4,7 +4,7 @@ class AddNumberOfPagesToCategories < ActiveRecord::Migration
     add_column :categories, :number_of_pages, :integer, :null => false, :default => 0
 
     Category.find_each do |category|
-      category.update_attribute(:number_of_pages, category.pages.where(published: true).count)
+      category.update_attribute(:number_of_pages, category.pages.count)
       category.save
     end
   end

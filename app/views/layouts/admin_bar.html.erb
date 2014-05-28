@@ -13,11 +13,6 @@
           <li><%= link_to "New Page", new_page_path(@page.category.handle) %></li>
           <li><%= link_to "Edit Page", edit_page_path(@page) %></li>
           <li><%= link_to "Delete Page", delete_page_path(@page.category.handle, @page.handle), method: :delete, :data => { confirm: 'Are you sure you want to delete page with title "' + @page.title + '"?' } %></li>
-        <% if !@page.published %>
-          <li><%= link_to "Publish Page", publish_page_path(@page), method: :put %></li>
-        <% else %>
-          <li><%= link_to "Unpublish Page", publish_page_path(@page), method: :put %></li>
-        <% end %>
       <% end %>
 
       <li><a href="/logout" title="logout">Logout</a></li>
