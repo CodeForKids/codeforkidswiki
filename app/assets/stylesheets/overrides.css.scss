@@ -1,0 +1,26 @@
+@media only screen and (min-width: 40.063em) {
+  .medium-block-grid-4>li:nth-of-type(4n+1) {
+    clear: none !important;
+  }
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-12x {
+  font-size: 12em;
+}
+
+@media screen and (min-width: 641px) {
+  .medium-0 { display: none !important; }
+}
+
+.panel.error {
+  border-color: #FF1F4C !important;
+  display: none;
+}
+
+input[type="text"] {
+  text-align: left !important;
+}

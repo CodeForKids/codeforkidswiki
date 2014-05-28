@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405232747) do
+ActiveRecord::Schema.define(version: 20140505045424) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 20140405232747) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "handle"
-    t.string   "fontawesome", default: "fa-chevron-right", null: false
+    t.string   "fontawesome",     default: "fa-chevron-right", null: false
+    t.integer  "pages_count",     default: 0
+    t.integer  "number_of_pages", default: 0,                  null: false
   end
 
   create_table "commits", force: true do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140405232747) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.boolean  "published",   default: false
   end
 
   create_table "users", force: true do |t|

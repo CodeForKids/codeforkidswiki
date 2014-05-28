@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
 
   def show
     @pages = Page.where(:category => @category).paginate(:page => params[:page], :per_page => 5)
+    @pages = @pages.published if session[:user_id].nil?
   end
 
   def new

@@ -16,6 +16,8 @@
 //= require_tree .
 //= require tinymce
 //= require jquery.swifttype.autocomplete
+//= require modernizr
+//= require slicknav
 
 $(function() {
   $('#st-search-input').swiftype({
@@ -24,6 +26,14 @@ $(function() {
     engineKey: '<%= ENV['SWIFTYPE_ENGINE_KEY'] %>',
     renderFunction: customRenderFunction
   });
+
+  $('#st-search-input').swiftypeSearch({
+    resultContainingElement: "#st-results-container",
+    searchFields: {'page': ['title','content']},
+    engineKey: '<%= ENV['SWIFTYPE_ENGINE_KEY'] %>',
+    renderFunction: customRenderFunction
+  });
+
 });
 
 var customRenderFunction = function(document_type, item) {

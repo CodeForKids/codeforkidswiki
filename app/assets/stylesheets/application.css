@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  *= require autocomplete
+ *= require foundations.min
+ *= require global
+ *= require normalize
+ *= require slicknav
+ *= require font-awesome
  */
 
 /* == GENERAL == */
@@ -20,7 +25,7 @@ height: 3.5em;
 }
 
 .menu-padded-vert {
-  padding-top: 1.4em;
+  padding-top: 1.0em;
   padding-bottom: 1.0em;
 }
 

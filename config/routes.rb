@@ -2,7 +2,6 @@ Rails.application.routes.default_url_options[:host] = ENV['DEFAULT_HOST']
 
 Rails.application.routes.draw do
 
-
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   root 'categories#index'
   get '/logout' => 'application#logout'
@@ -22,15 +21,15 @@ Rails.application.routes.draw do
      get      'category/:handle/pages/new' => :new, :as => :new_page
      get      'pages/:id/edit' => :edit, :as => :edit_page
      get      'category/:handle/pages/:page_handle' => :show, :as => :page
+     put      'pages/:id/publish' => :publish_page, :as => :publish_page
      patch    'pages/:id' => :update
      put      'pages/:id' => :update, :as => :update_page
      delete   'category/:handle/pages/:page_handle' => :destroy, :as => :delete_page
 
-
-    controller :commits do
-     get 'category/:handle/pages/:page_handle/commits' => :index, :as => :page_commits
+      controller :commits do
+       get 'category/:handle/pages/:page_handle/commits' => :index, :as => :page_commits
+      end
     end
   end
-end
 
 end

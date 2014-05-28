@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   include ApplicationHelper
   before_action :check_admin, only: [:new, :edit, :update, :destroy]
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :history]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :history, :publish]
   before_action :set_category, only: [:new, :edit, :destroy]
 
   def show
@@ -42,6 +42,16 @@ class PagesController < ApplicationController
     redirect_to show_category_path(@category.handle)
   end
 
+  def publish_page
+    if @page.publish
+      notice = 'Page was successfully published.'
+    else
+      notice = 'Could not publish page.'
+    end
+    redirect_to page_path(@page.category.handle, @page.handle), notice: notice
+
+  end
+
 private
 
   def update_commit
@@ -54,6 +64,7 @@ private
 
   def set_page
     @page = Page.find_by(handle: params[:page_handle]) || Page.find(params[:id])
+    check_admin if !@page.published
   end
 
   def set_category
