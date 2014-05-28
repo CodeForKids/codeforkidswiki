@@ -1,3 +1,7 @@
+#hdr-logo {
+  margin-top: 10px;
+}
+
 @media only screen and (min-width: 40.063em) {
   .medium-block-grid-4>li:nth-of-type(4n+1) {
     clear: none !important;
@@ -14,6 +18,22 @@
 
 @media screen and (min-width: 641px) {
   .medium-0 { display: none !important; }
+}
+
+@media screen and (max-width: 641px) {
+  .admin-menu > nav {
+    display: none !important;
+  }
+  .admin-menu > .slicknav_menu {
+    border: none !important;
+    background: #333333 !important;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .page-padding-horiz {
+    padding-left: 2em !important;
+  }
 }
 
 .panel.error {

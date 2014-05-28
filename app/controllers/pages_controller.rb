@@ -54,7 +54,6 @@ private
 
   def set_page
     @page = Page.find_by(handle: params[:page_handle]) || Page.find(params[:id])
-    check_admin
   end
 
   def set_category
