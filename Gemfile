@@ -19,6 +19,7 @@ gem 'will_paginate'
 
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem 'foundation-rails'
 gem 'turbolinks'
 gem 'counter_culture', '~> 0.1.18'
 
