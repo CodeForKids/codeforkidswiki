@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'categories#index'
   get '/logout' => 'application#logout'
   get 'ping' => 'application#ping'
+  post '/tinymce_assets' => 'tinymce_assets#create'
 
   controller :categories do
     post     'category' => :create, :as => :create_category
