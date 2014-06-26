@@ -21,7 +21,7 @@ class Page  < ActiveRecord::Base
   after_destroy :enqueue_delete_document_job
 
   def latest_committer
-    self.commits.first.user
+    self.commits.last.user
   end
 
   def last_updated
