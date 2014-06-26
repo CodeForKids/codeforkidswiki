@@ -24,6 +24,10 @@ class Page  < ActiveRecord::Base
     self.commits.last.user
   end
 
+  def recent_commits(number=5)
+    self.commits.last(number).reverse
+  end
+
   def last_updated
     self.updated_at.to_formatted_s(:long)
   end
