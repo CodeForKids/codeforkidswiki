@@ -19,11 +19,7 @@
     <%= link_to page_path(@category.handle, page.handle), :title => 'Read more about ' + page.title do %>
       <div>
 
-        <div class="medium-3 text-center hide-for-small columns">
-            <img class="img-round " src="http://cdn.shopify.com/s/files/1/0223/1913/t/8/assets/slideshow_1.jpg?15231" alt="">
-        </div>
-
-        <div class="medium-9 columns">
+        <div class="medium-12 columns">
           <h2><%= page.title %></h2>
           <h3><small>Posted on <time pubdate="" datetime="<%= page.last_updated %>"><%= page.last_updated %></time> - by <%= page.latest_committer.username %></small></h3>
           <p class="preview">
