@@ -7,4 +7,12 @@
  1. Runs on Ruby on Rails
  2. Uses MySQL
  3. Simply clone the repo, run bundle install, rake db:setup
- 4. Good to go!
+ 4. Set the following environment variables: 
+   - GOOGLE_KEY
+   - GOOGLE_SECRET
+   - S3_KEY
+   - S3_SECRET
+   - S3_REGION
+   - S3_BUCKET_NAME
+   - SWIFTYPE_API_KEY
+ 5. Boot the Server
