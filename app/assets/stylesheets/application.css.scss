@@ -106,3 +106,10 @@ height: 3.5em;
 .blog-tease .preview {
   color: black;
 }
+
+ul.pagination li {
+  a { text-decoration: none; color: #999 !important; }
+  &.current a {
+    color: white !important;
+  }
+}

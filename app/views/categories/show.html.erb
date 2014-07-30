@@ -5,13 +5,13 @@
     <li class="current"><%= @category.name %></li>
   </ul>
 
+  <div class="pull-right">
+    <%= foundation_paginate @pages %>
+  </div>
+
 </div>
 
 <div class="row padded-bottom">
-
-<div class="padded-bottom">
-<%= will_paginate @pages %>
-</div>
 
 <% @pages.each do |page| %>
 
@@ -34,8 +34,8 @@
 
 <% end %>
 
-<div class="padded-vert">
-<%= will_paginate @pages %>
+<div class="padded-vert pull-right">
+<%= foundation_paginate @pages %>
 </div>
 
 <% if @pages.count == 0 %>

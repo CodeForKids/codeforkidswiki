@@ -13,6 +13,7 @@ gem 'omniauth-google-oauth2'
 
 gem 'tinymce-rails'
 gem 'will_paginate'
+gem 'foundation-will_paginate'
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
