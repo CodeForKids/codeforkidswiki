@@ -34,7 +34,7 @@
     <!-- START FOOTER WIDGET 3 -->
     <div class="medium-6 large-3 columns">
       <h4>Pages &amp; Resources</h4>
-      <ul>
+      <ul class="no-style">
 
         <li class="active"><a href="http://codeforkids.ca/pages/about" class="menu-link" title="Go To Code For Kids About Code For Kids">About Code For Kids</a>
         </li>
@@ -55,7 +55,7 @@
         </li>
 
         <% if session[:user_id].nil? %>
-          <li><%= link_to "Admin Sign in", user_omniauth_authorize_path(:google_oauth2) %></li>
+          <li><%= link_to "Admin Sign in", user_omniauth_authorize_path(:google_oauth2), rel: "nofollow" %></li>
         <% end %>
 
       </ul>

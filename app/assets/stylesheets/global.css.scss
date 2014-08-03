@@ -113,6 +113,7 @@ a.bg-blue:visited { color: $white; }
 .img-rounded { @include roundedEdges(); }
 .marginTop { margin-top: 2.0em; }
 .no-decoration { text-decoration: none; }
+ul.no-style { list-style: none; }
 
 /* == GLOBAL STYLES == */
 html, body { max-width: 100%; }
