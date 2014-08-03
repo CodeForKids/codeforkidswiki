@@ -44,9 +44,20 @@
           <div class="columns">
             <h1>Code For Kids Wiki</h1>
             <h4 style="color:white">This is a free wiki system for Code For Kids Information</h4>
-            <form class="hide">
-              <input type='text' id='st-search-input' class='st-search-input' placeholder="Search the Code For Kids Wiki..."/>
-            </form>
+            <%= form_tag("/search", method: "get") do %>
+              <div class="large-12 columns">
+                <div class="row collapse">
+                  <div class="medium-11 small-10 columns">
+                    <%= text_field_tag :query, "", placeholder: "Search the Code For Kids Wiki..." %>
+                  </div>
+                  <div class="medium-1 small-2 columns">
+                    <%= button_tag(type: "submit", class: "button postfix alert") do %>
+                        <i class="fa fa-search"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </section>

@@ -18,7 +18,7 @@ class OmniauthCallbacksControllerTest < ActionController::TestCase
     assert_equal 'Nadeau', user.last_name
     assert_equal 'Julian Nadeau', user.username
 
-    assert_equal 3, session[:user_id]
+    assert_not_nil session[:user_id]
     assert_equal 'julian2@code-for-kids.com', session[:user_email]
 
     assert_redirected_to root_url

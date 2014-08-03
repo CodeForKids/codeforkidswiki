@@ -1,7 +1,6 @@
 /*
  *= require_self
  *= require_tree .
- *= require autocomplete
  *= require normalize
  *= require font-awesome
  *= require slicknav
@@ -112,4 +111,8 @@ ul.pagination li {
   &.current a {
     color: white !important;
   }
+}
+
+.alert {
+  background-color: rgba(236, 115, 49, 0.74) !important;
 }

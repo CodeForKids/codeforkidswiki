@@ -3,86 +3,9 @@
 //= require turbolinks
 //= require tinymce-jquery
 //= require hashchange
-//= require jquery.swiftype.autocomplete
-//= require jquery.swiftype.search
 //= require modernizr
 //= require slicknav
 //= require foundation
 //= require_tree .
 
 $(document).foundation();
-
-$(function() {
-  $('#st-search-input').swiftype({
-    resultContainingElement: "#st-results-container",
-    searchFields: {'page': ['title','content']},
-    engineKey: '7UxCnoeqRyYngf3ysWAv',
-    renderFunction: customRenderFunction
-  });
-
-  $('#st-search-input').swiftypeSearch({
-    resultContainingElement: "#st-results-container",
-    searchFields: {'page': ['title','content']},
-    engineKey: '7UxCnoeqRyYngf3ysWAv',
-    renderFunction: customRenderFunction
-  });
-
-});
-
-var customRenderFunction = function(document_type, item) {
-    var out = '<p class="title">' + item['title'] + '</p>';
-    out = out.concat('<p class="category">Category: ' + item['category'] + '</p>');
-    out = out.concat('<p class="updated_at">Updated last: ' + formatDate(item['updated_at']) + '</p>');
-    return out;
-};
-
-function formatDate(date) {
-    var d_names = new Array("Sunday", "Monday", "Tuesday",
-        "Wednesday", "Thursday", "Friday", "Saturday");
-
-    var m_names = new Array("January", "February", "March",
-        "April", "May", "June", "July", "August", "September",
-        "October", "November", "December");
-
-    var d = new Date(date);
-    var curr_day = d.getDay();
-    var curr_date = d.getDate();
-    var sup = "";
-    if (curr_date == 1 || curr_date == 21 || curr_date == 31) {
-        sup = "st";
-    } else if (curr_date == 2 || curr_date == 22) {
-        sup = "nd";
-    } else if (curr_date == 3 || curr_date == 23) {
-        sup = "rd";
-    } else {
-        sup = "th";
-    }
-    var curr_month = d.getMonth();
-    var curr_year = d.getFullYear();
-
-    return d_names[curr_day] + " " + curr_date + "<SUP>" + sup + "</SUP> " + m_names[curr_month] + " " + curr_year + " at " + getTime(date);
-}
-
-
-function getTime(date) {
-    var a_p = "";
-    var d = new Date(date);
-
-    var curr_hour = d.getHours();
-
-    if (curr_hour < 12) {
-        a_p = "AM";
-    } else {
-        a_p = "PM";
-    }
-    if (curr_hour == 0) {
-        curr_hour = 12;
-    }
-    if (curr_hour > 12) {
-        curr_hour = curr_hour - 12;
-    }
-
-    var curr_min = d.getMinutes();
-
-    return curr_hour + ":" + curr_min + " " + a_p;
-}

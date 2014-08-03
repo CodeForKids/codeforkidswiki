@@ -3,16 +3,15 @@
 {<img src="https://codeclimate.com/repos/533f74e269568009950b92b0/badges/6091994f735bcf16a9c6/gpa.png" />}[https://codeclimate.com/repos/533f74e269568009950b92b0/feed]
 {<img src="https://codeclimate.com/repos/533f74e269568009950b92b0/badges/6091994f735bcf16a9c6/coverage.png" />}[https://codeclimate.com/repos/533f74e269568009950b92b0/feed]
 {<img src="https://semaphoreapp.com/api/v1/projects/33381ecc-8b20-48e4-bcf3-010197a588fc/163863/shields_badge.png" />}[https://semaphoreapp.com/jules2689/codeforkidswiki]
- 
+
  1. Runs on Ruby on Rails
  2. Uses MySQL
  3. Simply clone the repo, run bundle install, rake db:setup
- 4. Set the following environment variables: 
+ 4. Set the following environment variables:
    - GOOGLE_KEY
    - GOOGLE_SECRET
    - S3_KEY
    - S3_SECRET
    - S3_REGION
    - S3_BUCKET_NAME
-   - SWIFTYPE_API_KEY
  5. Boot the Server

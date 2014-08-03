@@ -1,0 +1,54 @@
+<div class="row padded-vert-small">
+
+  <ul class="breadcrumbs">
+    <li><a href="/">Home</a></li>
+    <li class="current">Searching "<%= h params[:query] %>"</li>
+  </ul>
+
+  <div class="pull-right">
+    <%= foundation_paginate @pages %>
+  </div>
+
+</div>
+
+<div class="row padded-bottom">
+
+<div data-alert="" class="alert-box radius">
+  These are the results for your search for "<%= h params[:query] %>"
+  <a href="" class="close">×</a>
+</div>
+
+<% @pages.each do |page| %>
+
+  <section class="row blog-tease">
+    <%= link_to page_path(page.category.handle, page.handle), :title => 'Read more about ' + page.title do %>
+      <div>
+
+        <div class="medium-12 columns">
+          <h2><%= page.title %></h2>
+          <h3><small>Posted on <time pubdate="" datetime="<%= page.last_updated %>"><%= page.last_updated %></time> - by <%= page.latest_committer.username %></small></h3>
+          <p class="preview">
+            <%= page.preview %>
+          </p>
+          <span>Read More</span>
+        </div>
+
+      </div>
+    <% end %>
+  </section>
+
+<% end %>
+
+<div class="padded-vert pull-right">
+<%= foundation_paginate @pages %>
+</div>
+
+<% if @pages.count == 0 %>
+<div class="small-12 columns text-center no-pages">
+  <p><i class="fa fa-files-o fa-5x"></i></p>
+  <h5>There doesn't seem to be any pages here yet.</h5>
+  <p><%= link_to 'Return Home', root_url %></p>
+</div>
+<% end %>
+
+</div>

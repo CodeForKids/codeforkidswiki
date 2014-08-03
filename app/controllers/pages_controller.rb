@@ -7,6 +7,10 @@ class PagesController < ApplicationController
   def show
   end
 
+  def search
+    @pages = PageRepository.new(params).search
+  end
+
   def category
   end
 

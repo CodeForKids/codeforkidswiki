@@ -1,5 +1,29 @@
 class Page  < ActiveRecord::Base
   include ApplicationHelper
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
+  index_name "wiki-engine-#{Rails.env}"
+
+  mapping do
+    indexes :id, index: :not_analyzed
+    indexes :title, analyzer: 'snowball', boost: 100
+    indexes :content, analyzer: 'snowball'
+    indexes :published_at, type: 'date', index: :not_analyzed
+    indexes :handle, type: 'string', index: :not_analyzed
+    indexes :category_id, type: 'integer', index: :not_analyzed
+  end
+
+  def to_indexed_json
+    {
+      id: id,
+      title: title,
+      content: content,
+      published_at: updated_at,
+      handle: handle,
+      category_id: category_id
+    }.to_json
+  end
 
   belongs_to :category
   counter_culture :category, column_name: :number_of_pages
@@ -16,9 +40,6 @@ class Page  < ActiveRecord::Base
 
   after_create :create_commit
   before_save :change_handle
-
-  after_save :enqueue_create_or_update_document_job
-  after_destroy :enqueue_delete_document_job
 
   def latest_committer
     self.commits.last.user
@@ -37,18 +58,6 @@ class Page  < ActiveRecord::Base
   end
 
   private
-
-  def enqueue_create_or_update_document_job
-    if Rails.env.production?
-      Delayed::Job.enqueue UpdateSwiftypeJob.new(self.id)
-    end
-  end
-
-  def enqueue_delete_document_job
-    if Rails.env.production?
-      Delayed::Job.enqueue DeleteSwiftypeDocumentJob.new(self.id)
-    end
-  end
 
   def change_handle
    self.handle = self.title.parameterize

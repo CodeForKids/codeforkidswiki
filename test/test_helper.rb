@@ -14,6 +14,11 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
+  def setup
+    FakeWeb.allow_net_connect = false
+    FakeWeb.register_uri(:any, %r|\Ahttp://localhost:9200|, :body => "{}")
+  end
+
   def setup_controller_tests
     session[:user_id] = 1
     session[:user_email] = 'test@codeforkids.ca'
