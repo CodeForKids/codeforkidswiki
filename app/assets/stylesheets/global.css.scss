@@ -123,7 +123,8 @@ html { overflow-x: hidden; }
 #breadcrumbs { padding-bottom: 1.0em; border-bottom: 0.1em dotted $blue; }
 #breadcrumbs a { font-size: 90%; }
 #breadcrumbs a:last-child { font-weight: bold; text-decoration: none; }
-.content { min-height:600px; padding: 10px; }
+.content { min-height:600px; }
+.inner-content { padding: 10px; }
 .blog-teaser h6, .blog-teaser small { color: $white; }
 .blog-teaser img { height: 100px; border: 1px solid $white; }
 .no-script { height: 100%; width: 100%; background: $black-semi-transparent; position:fixed; z-index: 1000000; }
