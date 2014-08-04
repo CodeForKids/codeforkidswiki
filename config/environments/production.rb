@@ -79,7 +79,7 @@ CfkWiki::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   Tire.configure do
-    url    "http://#{ENV['ELASTICSEARCH_ADDRESS_EXT']}:9200"
+    url    'http://104.131.208.203:9200'
     logger STDERR
   end
 
