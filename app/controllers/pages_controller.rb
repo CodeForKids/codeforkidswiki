@@ -1,4 +1,3 @@
-require 'pry'
 class PagesController < ApplicationController
   include ApplicationHelper
   before_action :check_admin, only: [:new, :edit, :update, :destroy]
