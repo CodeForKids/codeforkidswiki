@@ -26,6 +26,7 @@ Rails.application.routes.draw do
      patch    'pages/:id' => :update
      put      'pages/:id' => :update, :as => :update_page
      delete   'category/:handle/pages/:page_handle' => :destroy, :as => :delete_page
+     post     'pages/:id/helped' => :helped, :as => :help_page
 
       controller :commits do
        get 'category/:handle/pages/:page_handle/commits' => :index, :as => :page_commits

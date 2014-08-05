@@ -14,4 +14,5 @@
    - S3_SECRET
    - S3_REGION
    - S3_BUCKET_NAME
- 5. Boot the Server
+ 5. Install ElasticSearch locally, and start it
+ 6. Boot the Server

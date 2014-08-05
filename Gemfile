@@ -37,3 +37,7 @@ group :test do
   gem 'fakeweb'
   gem 'webmock', require: nil
 end
+
+group :development, :test do
+  gem 'pry'
+end

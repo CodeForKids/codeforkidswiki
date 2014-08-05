@@ -96,4 +96,18 @@ class PagesControllerTest < ActionController::TestCase
 
     assert_redirected_to show_category_path(@category.handle)
   end
+
+  test "should change page help" do
+    before = @page.did_help
+    post :helped, { id: @page.id, helped: "true" }
+    assert_equal before + 1, Page.find(@page.id).did_help
+    assert_redirected_to page_path(@category.handle, @page.handle)
+  end
+
+  test "should change page did not help" do
+    before = @page.did_not_help
+    post :helped, { id: @page.id, helped: "false" }
+    assert_equal before + 1, Page.find(@page.id).did_not_help
+    assert_redirected_to page_path(@category.handle, @page.handle)
+  end
 end

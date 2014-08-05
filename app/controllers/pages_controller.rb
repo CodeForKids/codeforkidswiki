@@ -1,7 +1,8 @@
+require 'pry'
 class PagesController < ApplicationController
   include ApplicationHelper
   before_action :check_admin, only: [:new, :edit, :update, :destroy]
-  before_action :set_page, only: [:show, :edit, :update, :destroy, :history]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :history, :helped]
   before_action :set_category, only: [:new, :edit, :destroy]
 
   def show
@@ -44,6 +45,16 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     redirect_to show_category_path(@category.handle)
+  end
+
+  def helped
+    if params[:helped] == "true"
+      @page.did_help += 1
+    else
+      @page.did_not_help += 1
+    end
+    @page.save(validate: false)
+    redirect_to page_path(@page.category.handle, @page.handle), notice: 'Thanks for the feedback'
   end
 
 private
