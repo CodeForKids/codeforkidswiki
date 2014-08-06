@@ -4,7 +4,7 @@
 <div class="medium-3 columns"  style="float:left !important">
   <div class="panel padded-vert" style="height:200px;">
     <h3><%= page.title %></h3>
-    <p><%= truncate(page.content, length: 57) %></p>
+    <p><%= page.preview %></p>
     <%= link_to "Read more", page_path(page, :category => @category.id) %>
   </div>
 </div>
