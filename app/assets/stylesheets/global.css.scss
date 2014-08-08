@@ -61,10 +61,10 @@ h1, h2, h3, h4, h5 { font-family: $mainfont; font-weight: bold; margin-bottom: 0
 h1 small, h2 small, h3 small, h4 small, h5 small { color: $black; }
 body, p { font-family: $mainfont; font-size: 1.0em; line-height: 1.25em; }
 h1 { font-size: 2.0em; line-height: 1.25em; }
-h2 { font-size: 1.625em; line-height: 1.15384615em; }
-h3 { font-size: 1.375em; line-height: 1.13636364em; }
-h4 { font-size: 1.125em; line-height: 1.11111111em; }
-h5 { font-size: 1.0em; line-height: 1.25em; }
+h2 { font-size: 1.825em; line-height: 1.15384615em; }
+h3 { font-size: 1.575em; line-height: 1.13636364em; }
+h4 { font-size: 1.325em; line-height: 1.11111111em; }
+h5 { font-size: 1.2em; line-height: 1.25em; }
 .button { font-family: $secondfont; text-transform: uppercase; }
 a { color: $orange; text-decoration: underline; }
 a:visited { color: $accent; }
@@ -371,10 +371,6 @@ section.home, aside.home { border-bottom: 0.1em solid $medgray; }
 }
 /* == TABLET PORTRAIT ONLY == */
 @media screen and (min-width: 641px) and (max-width: 1024px) {
-  /* == FONTS == */
-  h1 { font-size: 2.5em; line-height: 1.125em; }
-  h2 { font-size: 2em; }
-  h3 { font-size: 1.5em; line-height: 1.25em; }
   #event-grid li { font-size: 0.8em; }
   /* == HEADER == */
   #hdr-logo { height: 2.0em; }
@@ -384,10 +380,6 @@ section.home, aside.home { border-bottom: 0.1em solid $medgray; }
 }
 /* == LARGE SCREEN ONLY == */
 @media screen and (min-width: 1025px) {
-  /* == FONTS == */
-  h1 { font-size: 3.0em; line-height: 1.05em; }
-  h2 { font-size: 2.25em; }
-  h3 { font-size: 1.5em; }
   /* == HEADER == */
   #hdr-logo { height: 3.0em; }
   /* == HOME == */
