@@ -15,7 +15,7 @@ class PagesControllerTest < ActionController::TestCase
 
   test 'should redirect to root without login' do
     session[:user_id] = nil
-    get :edit,  { :category_id => @category.id, :id => @page }
+    get :edit, { :handle => @category.handle, :id => @page }
     assert_response :redirect
     assert_redirected_to root_url
   end
@@ -59,7 +59,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit,  { :category_id => @category.id, :id => @page }
+    get :edit,  { :handle => @category.handle, :id => @page }
     assert_response :success
   end
 
