@@ -27,7 +27,7 @@
 
           <div class="control-group">
             <%= f.label :category %>
-            <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => true}) %>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => true, :selected => @category.id }) %>
           </div>
 
           <div class="control-group">
