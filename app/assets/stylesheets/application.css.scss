@@ -81,14 +81,17 @@
 
 .category-panel {
   float:left !important;
-}
+  i {
+    color: #469ad0;
+  }
 
-.category-panel i {
-  color: #469ad0;
-}
+  span {
+    color: #ec7331;
+  }
 
-.category-panel span {
-  color: #ec7331;
+  h3 {
+    font-size: 1.2em;
+  }
 }
 
 .category-panel > a > div {
