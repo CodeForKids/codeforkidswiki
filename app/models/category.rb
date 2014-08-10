@@ -5,6 +5,10 @@ class Category < ActiveRecord::Base
 
   before_save :change_handle
 
+  def to_param
+    self.handle
+  end
+
   private
 
   def change_handle

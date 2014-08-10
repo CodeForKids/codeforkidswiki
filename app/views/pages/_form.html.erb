@@ -27,13 +27,20 @@
 
           <div class="control-group">
             <%= f.label :category %>
-            <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => true, :selected => @category.id }) %>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => true }) %>
           </div>
-
+          <br>
           <div class="control-group">
             <%= f.label :commit_message %>
             <%= f.text_field :commit_message, :style => 'width:100%', :readonly => @page.new_record?, :value => @page.new_record? ? 'Initial Commit' : '' %>
           </div>
+
+          <div class="control-group">
+            <%= f.label :tag_list %>
+            <%= f.text_field :tag_list, :style => 'width:100%' %>
+          </div>
+
+          <br>
 
           <div class="control-group">
             <%= f.label :content %>

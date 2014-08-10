@@ -28,7 +28,7 @@ class PagesController < ApplicationController
     if @page.save
       redirect_to show_category_path(@page.category.handle), notice: 'Page was successfully created.'
     else
-      render action: 'new'
+      render :new
     end
   end
 
@@ -37,7 +37,7 @@ class PagesController < ApplicationController
       update_commit
       redirect_to page_path(@page.category.handle, @page.handle), notice: 'Page was successfully updated.'
     else
-      render action: 'edit'
+      render :edit
     end
   end
 
@@ -75,7 +75,7 @@ private
   end
 
   def page_params
-    params.require(:page).permit(:title,:content,:category_id,:commit_message)
+    params.require(:page).permit(:title, :content, :category_id, :commit_message, :tag_list)
   end
 
 end

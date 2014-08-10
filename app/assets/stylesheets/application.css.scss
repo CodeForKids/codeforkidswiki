@@ -123,3 +123,17 @@ ul.pagination li {
 .alert {
   background-color: rgba(236, 115, 49, 0.74) !important;
 }
+
+#error_explanation {
+  background: rgb(255, 151, 151);
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff !important;
+  margin-bottom: 15px;
+  h2 {
+    color: #fff;
+  }
+  ul {
+    list-style: none;
+  }
+}

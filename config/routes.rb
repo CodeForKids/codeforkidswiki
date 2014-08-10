@@ -21,7 +21,7 @@ Rails.application.routes.draw do
      get      'search' => :search, :as => :search
      post     'pages' => :create, :as => :create_page
      get      'category/:handle/pages/new' => :new, :as => :new_page
-     get      'pages/:id/edit' => :edit, :as => :edit_page
+     get      'category/:handle/pages/:id/edit' => :edit, :as => :edit_page
      get      'category/:handle/pages/:page_handle' => :show, :as => :page
      patch    'pages/:id' => :update
      put      'pages/:id' => :update, :as => :update_page

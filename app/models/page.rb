@@ -12,6 +12,7 @@ class Page  < ActiveRecord::Base
     indexes :published_at, type: 'date', index: :not_analyzed
     indexes :handle, type: 'string', index: :not_analyzed
     indexes :category_id, type: 'integer', index: :not_analyzed
+    indexes :tag_list, type: 'string', boost: 50
   end
 
   def to_indexed_json
@@ -21,13 +22,15 @@ class Page  < ActiveRecord::Base
       content: content,
       published_at: updated_at,
       handle: handle,
-      category_id: category_id
+      category_id: category_id,
+      tag_list: tag_list
     }.to_json
   end
 
   belongs_to :category
   counter_culture :category, column_name: :number_of_pages
   has_many :commits
+  acts_as_taggable
 
   attr_accessor :commit_message
 
