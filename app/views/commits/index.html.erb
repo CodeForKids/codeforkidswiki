@@ -11,7 +11,7 @@
 <div class="row padded-vert-small">
 
   <h2><%= @page.title %> | History </h2>
-  <p>Last updated at <%= @page.updated_at %></p>
+  <p>Last updated at <%= @page.updated_at.to_formatted_s(:long) %></p>
 
   <hr>
 
