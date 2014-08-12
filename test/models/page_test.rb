@@ -6,8 +6,8 @@ class PageTest < ActiveSupport::TestCase
     @user = users(:one)
   end
 
-  test 'Latest Committer' do
-    assert_equal @user, @page.latest_committer
+  test 'most_common_committer' do
+    assert_equal @user, @page.most_common_committer
   end
 
   test 'Last Updated' do
@@ -19,16 +19,4 @@ class PageTest < ActiveSupport::TestCase
     assert_equal 300, @page.preview.length
   end
 
-  end
-
-# def latest_committer
-#   self.commits.first.user
-# end
-
-# def last_updated
-#   self.updated_at.to_formatted_s(:long)
-# end
-
-# def preview
-#   ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content).gsub(/&nbsp;/i,""), length: 300)
-# end
+end

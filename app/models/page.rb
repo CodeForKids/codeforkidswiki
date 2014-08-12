@@ -44,8 +44,9 @@ class Page  < ActiveRecord::Base
   after_create :create_commit
   before_save :change_handle
 
-  def latest_committer
-    self.commits.last.user
+  def most_common_committer
+    users_count = self.commits.group(:user_id).count
+    self.commits.max_by { |v| users_count[v] }.user
   end
 
   def recent_commits(number=5)
