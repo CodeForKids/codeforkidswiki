@@ -61,7 +61,6 @@ class Page  < ActiveRecord::Base
   def preview
     preview = ActionView::Base.full_sanitizer.sanitize(self.content)
     preview = ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(preview).gsub(/&(.*);/,""), length: 300).html_safe
-
   end
 
   private
