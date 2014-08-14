@@ -125,8 +125,8 @@ html { overflow-x: hidden; }
 #breadcrumbs a:last-child { font-weight: bold; text-decoration: none; }
 .content { min-height:600px; }
 .inner-content { padding: 10px; }
-.blog-teaser h6, .blog-teaser small { color: $white; }
-.blog-teaser img { height: 100px; border: 1px solid $white; }
+.page-teaser h6, .page-teaser small { color: $white; }
+.page-teaser img { height: 100px; border: 1px solid $white; }
 .no-script { height: 100%; width: 100%; background: $black-semi-transparent; position:fixed; z-index: 1000000; }
 .no-script div { color: $white !important; padding:10%; }
 #menu { font-size: 0.9em; }
@@ -245,12 +245,12 @@ section.home, aside.home { border-bottom: 0.1em solid $medgray; }
 #blog-nav li:hover { background-color: $lightblue; }
 #blog-nav li.active { background-color: $blue; }
 #blog-nav li.active a { color: $white; }
-.blog-tease { padding-top: 2.0em; padding-bottom: 2.0em; border-bottom: 0.1em dotted $blue; }
-.blog-tease:last-child { border-bottom: 0; }
-.blog-tease img { margin-bottom: 0.5em; }
-.blog-tease > p { margin-bottom: 0; }
-.blog-tease a { text-decoration: none; }
-.blog-tease h2 { margin-bottom: 0; }
+.page-tease { padding-top: 2.0em; padding-bottom: 2.0em; border-bottom: 0.1em dotted $blue; }
+.page-tease:last-child { border-bottom: 0; }
+.page-tease img { margin-bottom: 0.5em; }
+.page-tease > p { margin-bottom: 0; }
+.page-tease a { text-decoration: none; }
+.page-tease h2 { margin-bottom: 0; }
 
 /* == CONTACT == */
 #contact-social { margin: 0 auto; float: none; }
