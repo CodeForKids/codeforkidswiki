@@ -27,6 +27,7 @@ gem 'tire'
 gem 'unicorn'
 gem 'newrelic_rpm'
 gem "codeclimate-test-reporter", group: :test, require: nil
+gem "airbrake"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
