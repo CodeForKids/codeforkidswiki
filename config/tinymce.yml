@@ -1,3 +1,4 @@
+extended_valid_elements: 'i[class]'
 height : 400
 theme_advanced_toolbar_location: top
 theme_advanced_toolbar_align: left
