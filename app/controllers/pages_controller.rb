@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    @pages = PageRepository.new(params).search
+    @pages = PageRepository.new(params[:query]).search
   end
 
   def category
