@@ -30,6 +30,10 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 gem "airbrake"
 gem "lograge"
 
+group :production do
+  gem 'remote_syslog_logger'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

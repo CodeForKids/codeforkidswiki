@@ -164,6 +164,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    remote_syslog_logger (1.0.3)
+      syslog_protocol
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
@@ -193,6 +195,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    syslog_protocol (0.9.2)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -250,6 +253,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   pry
   rails (= 4.1.1)
+  remote_syslog_logger
   sass-rails (~> 4.0.2)
   sdoc
   tinymce-rails
