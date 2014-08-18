@@ -75,6 +75,12 @@ CfkWiki::Application.configure do
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
+  config.lograge.enabled = true
+  config.lograge.ignore_actions = ['application#ping']
+  config.lograge.custom_options = lambda do |event|
+    {:time => event.time, :remote_ip => event.payload[:remote_ip], :uuid => event.payload[:uuid]}
+  end
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 

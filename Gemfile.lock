@@ -99,6 +99,10 @@ GEM
     jwt (0.1.11)
       multi_json (>= 1.5)
     kgio (2.9.2)
+    lograge (0.3.0)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -240,6 +244,7 @@ DEPENDENCIES
   foundation-rails
   foundation-will_paginate
   jquery-rails
+  lograge
   mysql2
   newrelic_rpm
   omniauth-google-oauth2
