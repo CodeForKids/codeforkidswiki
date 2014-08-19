@@ -20,9 +20,16 @@
 
          <div class="content">
 
-          <div class="control-group">
-            <%= f.label :title %>
-            <%= f.text_field :title, :style => 'width:100%' %>
+          <div class="clearfix">
+            <div class="control-group left small-10">
+              <%= f.label :title %>
+              <%= f.text_field :title %>
+            </div>
+
+            <div class="left small-2">
+              <br>
+              <%= f.check_box :sticky %><%= f.label :sitcky %>
+            </div>
           </div>
 
           <div class="control-group">

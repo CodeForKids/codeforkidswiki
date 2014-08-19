@@ -76,7 +76,7 @@ private
   end
 
   def page_params
-    params.require(:page).permit(:title, :content, :category_id, :commit_message, :tag_list)
+    params.require(:page).permit(:title, :content, :category_id, :commit_message, :tag_list, :sticky)
   end
 
   def remove_duplicate_tags
