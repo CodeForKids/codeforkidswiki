@@ -31,7 +31,6 @@ class PagesControllerTest < ActionController::TestCase
     assert_equal 1, page.commits.count
 
     assert_equal 'Initial Commit', page.commits.last.message
-
     assert_redirected_to show_category_path(@category.handle)
   end
 
@@ -109,5 +108,15 @@ class PagesControllerTest < ActionController::TestCase
     post :helped, { id: @page.id, helped: "false" }
     assert_equal before + 1, Page.find(@page.id).did_not_help
     assert_redirected_to page_path(@category.handle, @page.handle)
+  end
+
+  test "should create page with duplicate tags" do
+    assert_difference ['Page.count','Commit.count'] do
+      post :create, { handle: @category.handle, page: {  tag_list: "programming, Programming, program, Program", title: 'Name', commit_message: 'Commit', content: 'Content', category: @category.id, category_id: @category.id } }
+    end
+
+    page = assigns(:page)
+    assert_equal ["programming", "program"], page.tag_list
+    assert_redirected_to show_category_path(@category.handle)
   end
 end

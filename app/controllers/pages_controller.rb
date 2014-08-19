@@ -23,8 +23,8 @@ class PagesController < ApplicationController
   end
 
   def create
+    remove_duplicate_tags
     @page = Page.new(page_params)
-
     if @page.save
       redirect_to show_category_path(@page.category.handle), notice: 'Page was successfully created.'
     else
@@ -33,6 +33,7 @@ class PagesController < ApplicationController
   end
 
   def update
+    remove_duplicate_tags
     if @page.update(page_params)
       update_commit
       redirect_to page_path(@page.category.handle, @page.handle), notice: 'Page was successfully updated.'
@@ -76,6 +77,13 @@ private
 
   def page_params
     params.require(:page).permit(:title, :content, :category_id, :commit_message, :tag_list)
+  end
+
+  def remove_duplicate_tags
+    if params[:page][:tag_list]
+      tag_array = params[:page][:tag_list].downcase.split(',').map { |tag| tag.strip }
+      params[:page][:tag_list] = tag_array.uniq.join(',')
+    end
   end
 
 end
