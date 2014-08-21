@@ -65,10 +65,10 @@
       <!-- END SPLASH HEADER -->
 
       <% if session[:user_id] %>
-              <%= render template: 'layouts/admin_bar' %>
+        <%= render template: 'layouts/admin_bar' %>
       <% end %>
 
-      <div class="inner-content">
+      <div class="inner-content <% if session[:user_id] %>no-padding-top<% end %>">
         <div class="row">
           <div class="columns">
             <div id="st-results-container"></div>
