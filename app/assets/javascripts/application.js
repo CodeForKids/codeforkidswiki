@@ -25,7 +25,7 @@ function setScroll() {
   $('.page-splash').css("position","fixed");
   $('#hdr-logo').css("position","absolute");
   $('#hdr-logo').css("top","70px");
-  $('#hdr-logo').css("left","0");
+  $('#hdr-logo').css("left","20px");
   $('.page-splash').css("top", "-65px");
   $('.inner-content').css("padding-top","146px");
 }
