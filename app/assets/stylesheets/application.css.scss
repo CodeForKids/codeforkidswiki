@@ -13,6 +13,7 @@
 
 #hdr-logo {
   height: 3.5em;
+  z-index: 10000;
 }
 
 .breadcrumbs > * {
@@ -34,10 +35,6 @@
 
 .padded-bottom {
   padding-bottom: 2.0em;
-}
-
-.admin-menu {
-  padding-top: 151px;
 }
 
 .admin-menu .slicknav_menu {
@@ -147,6 +144,6 @@ ul.pagination li {
   }
 }
 
-.search { padding-left: 0px; padding-top: 20px; }
+.search { padding-left: 0px; padding-top: 20px; float: right; }
 
 .page-updated small { line-height: 15px; }

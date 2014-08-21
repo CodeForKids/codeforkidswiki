@@ -124,7 +124,7 @@ html { overflow-x: hidden; }
 #breadcrumbs a { font-size: 90%; }
 #breadcrumbs a:last-child { font-weight: bold; text-decoration: none; }
 .content { min-height:645px; background: #fff; }
-.inner-content { padding: 10px; padding-top: 151px; }
+.inner-content { padding: 10px; }
 .page-teaser h6, .page-teaser small { color: $white; }
 .page-teaser img { height: 100px; border: 1px solid $white; }
 .no-script { height: 100%; width: 100%; background: $black-semi-transparent; position:fixed; z-index: 1000000; }
@@ -196,7 +196,7 @@ section.home, aside.home { border-bottom: 0.1em solid $medgray; }
 .domain-error { color: $orange; font-size: 0.8em; display:none; }
 /* == ABOUT == */
 .page-splash-container { background: rgba(0, 1, 0, 0.68); }
-.page-splash { position: fixed; z-index: 95; background: #000100 image-url("background.png"); background-size: cover; color: $white; }
+.page-splash { z-index: 95; background: #000100 image-url("background.png"); background-size: cover; color: $white; }
 .page-splash h1 { color: $white; }
 .page-splash dd { height: 2.0em; display: inline-block; background-color: $blue; @include  border-radius(); }
 .page-splash dd:hover, .page-splash dd.active { background-color: darken($blue, 20%); }
