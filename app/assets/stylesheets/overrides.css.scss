@@ -30,6 +30,9 @@ table.no-bg tr.even, table.no-bg tr.alt, table.no-bg tr:nth-of-type(even)
 }
 
 @media screen and (max-width: 641px) {
+  .admin-menu {
+    padding-top: 0px;
+  }
   .admin-menu > nav {
     display: none !important;
   }
