@@ -10,24 +10,32 @@
 
 $(document).foundation();
 
+window.fixed_header = false;
+
 function resetScroll() {
-  $('.search').css("width","100%");
-  $('#hdr-logo').css("position","relative");
-  $('#hdr-logo').css("top","0");
-  $('#hdr-logo').css("left","0");
-  $('.inner-content').css("padding-top","0px");
-  $('.page-splash').css("position","relative");
-  $('.page-splash').css("top", "0");
+  if (window.fixed_header) {
+    window.fixed_header = false;
+    $('.search').animate({width:"100%"},{queue:false,duration:250});
+    $('#hdr-logo').css("position","relative");
+    $('#hdr-logo').css("top","0");
+    $('#hdr-logo').css("left","0");
+    $('.inner-content').css("padding-top","0px");
+    $('.page-splash').css("position","relative");
+    $('.page-splash').css("top", "0");
+  }
 }
 
 function setScroll() {
-  $('.search').css("width","60%");
-  $('.page-splash').css("position","fixed");
-  $('#hdr-logo').css("position","absolute");
-  $('#hdr-logo').css("top","70px");
-  $('#hdr-logo').css("left","20px");
-  $('.page-splash').css("top", "-65px");
-  $('.inner-content').css("padding-top","146px");
+  if (!window.fixed_header) {
+    window.fixed_header = true;
+    $('.search').animate({width:"60%"},{queue:false,duration:250});
+    $('.page-splash').css("position","fixed");
+    $('#hdr-logo').css("position","absolute");
+    $('#hdr-logo').css("top","70px");
+    $('#hdr-logo').css("left","20px");
+    $('.page-splash').css("top", "-65px");
+    $('.inner-content').css("padding-top","146px");
+  }
 }
 
 function checkScroll() {
