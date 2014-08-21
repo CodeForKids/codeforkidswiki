@@ -30,17 +30,29 @@ function setScroll() {
   $('.inner-content').css("padding-top","146px");
 }
 
+function checkScroll() {
+  var scroll = $(window).scrollTop();
+  if (scroll >= 64) {
+    setScroll();
+  } else {
+    resetScroll();
+  }
+}
+
 $(document).on("ready page:load", function(){
   $(window).scroll(function (event) {
     if (window.innerWidth > 641) {
-      var scroll = $(window).scrollTop();
-      if (scroll >= 64) {
-        setScroll();
-      } else {
-        resetScroll();
-      }
+      checkScroll();
     } else {
       resetScroll();
     }
+  });
+
+  $( window ).resize(function() {
+     if (window.innerWidth <= 641) {
+      resetScroll();
+     } else {
+      checkScroll();
+     }
   });
 });
