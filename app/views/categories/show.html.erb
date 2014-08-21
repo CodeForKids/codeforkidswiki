@@ -21,7 +21,7 @@
 
         <div class="medium-12 columns">
           <h2><%= page.title %></h2>
-          <h3><small>Last updated on <time pubdate="" datetime="<%= page.last_updated %>"><%= page.last_updated %></time> - by <%= page.most_common_committer.username %></small></h3>
+          <h3 class="page-updated"><small>Last updated on <time pubdate="" datetime="<%= page.last_updated %>"><%= page.last_updated %></time> - by <%= page.most_common_committer.username %></small></h3>
           <p class="preview">
             <%= page.preview %>
           </p>

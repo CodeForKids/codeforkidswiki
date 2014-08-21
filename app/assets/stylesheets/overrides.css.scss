@@ -37,6 +37,8 @@ table.no-bg tr.even, table.no-bg tr.alt, table.no-bg tr:nth-of-type(even)
     border: none !important;
     background: #333333 !important;
   }
+  .inner-content { padding-top: 0px; }
+  .page-splash { position: relative }
 }
 
 @media screen and (max-width: 1025px) {

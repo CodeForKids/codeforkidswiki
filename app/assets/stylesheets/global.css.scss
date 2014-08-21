@@ -124,7 +124,7 @@ html { overflow-x: hidden; }
 #breadcrumbs a { font-size: 90%; }
 #breadcrumbs a:last-child { font-weight: bold; text-decoration: none; }
 .content { min-height:600px; }
-.inner-content { padding: 10px; }
+.inner-content { padding: 10px; padding-top: 151px; }
 .page-teaser h6, .page-teaser small { color: $white; }
 .page-teaser img { height: 100px; border: 1px solid $white; }
 .no-script { height: 100%; width: 100%; background: $black-semi-transparent; position:fixed; z-index: 1000000; }
@@ -132,7 +132,7 @@ html { overflow-x: hidden; }
 #menu { font-size: 0.9em; }
 
 /* == HEADER == */
-header { top: 0px; padding-top: 0.25em; padding-bottom: 0.25em; position: fixed; z-index: 1000; border-bottom: 1px solid $blue; }
+header { top: 0px; padding-top: 0.25em; padding-bottom: 0.25em; float: left; }
 #hdr-logo { max-width:25%; line-height: 3.0em; }
 #hdr-logo img { max-height: 100%; max-width: 100%; }
 
@@ -151,14 +151,14 @@ footer li:before { content: "• "; color: $blue; }
 
 /* == HOME == */
 section.home, aside.home { border-bottom: 0.1em solid $medgray; }
-#home-splash { padding-top: 4.5em; padding-bottom: 2.0em; background: #666 image-url("bg-home-splash.jpg") center center; background-attachment: fixed;}
+#home-splash { padding-top: 4.5em; padding-bottom: 2.0em; background: #000100 image-url("background.png") center center; background-attachment: fixed;}
 #home-splash h1, #home-splash h2 small { color: $white; }
 #home-splash h1 { margin-bottom: 0; }
 .video-play i { font-size: 8.0em; color: $white; padding-bottom: 0.25em; }
 #home-icons i { font-size: 4.0em; margin-bottom: 0.25em; color: $blue; }
 #home-splash-mid_1, #home-splash-mid_2 { background-size: 3000px !important; background-position-y: 500px; font-style: italic; color: $white; }
-#home-splash-mid_1 { background: $blue image-url("bg-home-splash.jpg"); background-attachment: fixed;}
-#home-splash-mid_2 { background: $blue image-url("bg-home-splash.jpg") ; background-attachment: fixed;}
+#home-splash-mid_1 { background: $blue image-url("background.png"); background-attachment: fixed;}
+#home-splash-mid_2 { background: $blue image-url("background.png") ; background-attachment: fixed;}
 .home .inline-list { margin: 0; }
 .home li { padding-bottom: 0; margin-bottom: 0; }
 #home-cities { margin-top: 1.0em; margin-bottom: 0.5em; }
@@ -194,7 +194,8 @@ section.home, aside.home { border-bottom: 0.1em solid $medgray; }
 .donation-amount { width:97% !important; float:left !important; font-size:18px !important; color: $orange !important; }
 .domain-error { color: $orange; font-size: 0.8em; display:none; }
 /* == ABOUT == */
-.splash-about { z-index: 95; padding-top: 8.0em; padding-bottom: 1.0em; background: image-url("bg-home-splash.jpg"); background-size: cover; color: $white; }
+.page-splash-container { background: rgba(0, 1, 0, 0.68); }
+.page-splash { position: fixed; z-index: 95; background: #000100 image-url("background.png"); background-size: cover; color: $white; }
 .page-splash h1 { color: $white; }
 .page-splash dd { height: 2.0em; display: inline-block; background-color: $blue; @include  border-radius(); }
 .page-splash dd:hover, .page-splash dd.active { background-color: darken($blue, 20%); }
@@ -308,7 +309,6 @@ section.home, aside.home { border-bottom: 0.1em solid $medgray; }
 /* == MOBILE ONLY == */
 @media screen and (max-width: 641px) {
   /* == GLOBAL STYLES == */
-  .page-splash { padding-top: 3.5em; }
   .page-splash dd { width: 45%; float: left; margin-bottom: 1.0em !important; }
   .page-splash dd:nth-child(2n+1) { margin-right: 10%; }
   /* == SPLASH == */
@@ -344,7 +344,6 @@ section.home, aside.home { border-bottom: 0.1em solid $medgray; }
   h4 { font-size: 1.0em; line-height: 1.22222222em; }
   /* == GLOBAL STYLES == */
   .content-wrap { padding-top: 6.0em; }
-  .page-splash { padding-bottom: 2.0em; }
   .page-splash dl { margin: 0 auto; }
   .page-splash dd { float: none; padding-left: 0.5em; padding-right: 0.5em; margin-right: 0.5em; }
   .page-splash dd:last-child { margin-right: 0; }

@@ -21,42 +21,44 @@
   </head>
 
   <body>
-    <!-- START HEADER -->
-    <header class="wrap bg-black menu">
-      <div class="row">
-        <div class="columns">
-          <a href="/" class="left" id="hdr-logo" title="Go to Code For Kids Homepage">
-            <%= image_tag('logo.png') %>
-          </a>
-          <%= render template: 'layouts/menu' %>
-        </div>
-      </div>
-    </header>
-    <!-- END HEADER -->
 
     <!-- START CONTENT -->
     <div class="content">
 
       <!-- START SPLASH HEADER -->
-      <section class="page-splash splash-about text-center wrap">
-        <div class="row">
-          <div class="columns">
-            <h1>Code For Kids Wiki</h1>
-            <h4 style="color:white">This is a free wiki system for Code For Kids Information</h4>
-            <%= form_tag("/search", method: "get") do %>
-              <div class="large-12 columns">
-                <div class="row collapse">
-                  <div class="medium-11 small-10 columns">
-                    <%= text_field_tag :query, "", placeholder: "Search the Code For Kids Wiki..." %>
-                  </div>
-                  <div class="medium-1 small-2 columns">
-                    <%= button_tag(type: "submit", class: "button postfix alert") do %>
-                        <i class="fa fa-search"></i>
-                    <% end %>
+      <section class="page-splash text-center wrap">
+        <div class="page-splash-container">
+
+          <!-- START HEADER -->
+          <header class="wrap menu">
+            <div class="row">
+              <div class="columns">
+                <a href="/" class="left" id="hdr-logo" title="Code For Kids Wiki">
+                  <%= image_tag('logo.png', alt: "Code For Kids Wiki") %>
+                </a>
+                <%= render template: 'layouts/menu' %>
+              </div>
+            </div>
+          </header>
+          <!-- END HEADER -->
+
+          <div class="row">
+            <div class="columns">
+              <%= form_tag("/search", method: "get") do %>
+                <div class="large-12 columns search">
+                  <div class="row collapse">
+                    <div class="medium-11 small-10 columns">
+                      <%= text_field_tag :query, "", placeholder: "Search the Code For Kids Wiki..." %>
+                    </div>
+                    <div class="medium-1 small-2 columns">
+                      <%= button_tag(type: "submit", class: "button postfix alert") do %>
+                          <i class="fa fa-search"></i>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </section>
