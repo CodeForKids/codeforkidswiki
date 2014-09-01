@@ -29,6 +29,7 @@ gem 'newrelic_rpm'
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem "airbrake"
 gem "lograge"
+gem 'google-analytics-rails'
 
 group :production do
   gem 'remote_syslog_logger'

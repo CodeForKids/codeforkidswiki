@@ -89,4 +89,6 @@ CfkWiki::Application.configure do
     logger STDERR
   end
 
+  GA.tracker = ENV["CFK_WIKI_GA_CODE"]
+
 end
