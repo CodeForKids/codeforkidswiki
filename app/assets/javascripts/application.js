@@ -6,6 +6,7 @@
 //= require modernizr
 //= require slicknav
 //= require foundation
+//= require highlight.pack
 //= require_tree .
 
 $(document).foundation();
@@ -48,6 +49,13 @@ function checkScroll() {
 }
 
 $(document).on("ready page:load", function(){
+
+  $(document).ready(function() {
+    $('pre').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+
   $(window).scroll(function (event) {
     if (window.innerWidth > 641) {
       checkScroll();
