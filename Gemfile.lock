@@ -88,7 +88,6 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     foundation-will_paginate (0.0.1)
-    google-analytics-rails (0.0.6)
     hashie (2.0.5)
     hashr (0.0.22)
     hike (1.2.3)
@@ -247,7 +246,6 @@ DEPENDENCIES
   font-awesome-sass
   foundation-rails
   foundation-will_paginate
-  google-analytics-rails
   jquery-rails
   lograge
   mysql2

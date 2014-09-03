@@ -50,6 +50,12 @@ function checkScroll() {
 
 $(document).on("ready page:load", function(){
 
+  if (window._gaq != null) {
+    _gaq.push(['_trackPageview']);
+  } else if (window.pageTracker != null) {
+    pageTracker._trackPageview();
+  }
+
   $(document).ready(function() {
     $('pre').each(function(i, block) {
       hljs.highlightBlock(block);
