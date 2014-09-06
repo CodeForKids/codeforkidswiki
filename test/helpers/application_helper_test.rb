@@ -11,7 +11,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'gravatar' do
-    assert_equal 'http://www.gravatar.com/avatar.php?default=&gravatar_id=7d88a4641924c30ad59ba00b200bbd5f&rating=&size=', gravatar('julian@codeforkids.ca')
+    assert_equal 'https://www.gravatar.com/avatar.php?default=&gravatar_id=7d88a4641924c30ad59ba00b200bbd5f&rating=&size=', gravatar('julian@codeforkids.ca')
   end
 
   test 'pluralize no count' do
