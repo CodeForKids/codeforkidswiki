@@ -21,7 +21,7 @@ class Page  < ActiveRecord::Base
   def to_indexed_json
     {
       id: id,
-      title: title,
+      title: CGI.escape(title),
       content: content,
       published_at: updated_at,
       handle: handle,
