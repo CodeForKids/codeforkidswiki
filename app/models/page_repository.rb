@@ -8,7 +8,7 @@ class PageRepository
   end
 
   def search
-    query = params[:query]
+    query = params[:query].gsub("/", "\/")
     model.tire.search(load: true, page: params[:page], per_page: PAGES_PER_PAGE) do
       query { string query, default_operator: "AND" } if query.present?
       filter :range, published_at: { lte: Time.zone.now }
