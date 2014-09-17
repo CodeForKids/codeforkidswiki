@@ -5,7 +5,10 @@ class PagesControllerTest < ActionController::TestCase
     @page = pages(:one)
     @page2 = pages(:two)
     @category = categories(:one)
+
     @redirect = redirects(:one)
+    @redirect.update_attributes(page_id: @page.id)
+
     setup_controller_tests
   end
 

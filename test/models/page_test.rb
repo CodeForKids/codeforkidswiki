@@ -28,6 +28,7 @@ class PageTest < ActiveSupport::TestCase
     redirect = Redirect.last
     assert_equal "page-1", redirect.from
     assert_equal "some-new-title", redirect.to
+    assert_equal @page.id, redirect.page_id
   end
 
 end

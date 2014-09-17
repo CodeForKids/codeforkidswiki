@@ -72,7 +72,7 @@ class Page  < ActiveRecord::Base
   private
 
   def change_handle
-   Redirect.find_or_create_by(from: self.handle, to: self.title.parameterize) unless self.handle.nil?
+   Redirect.find_or_create_by(from: self.handle, to: self.title.parameterize, page_id: self.id) unless self.handle.nil?
    self.handle = self.title.parameterize
   end
 
@@ -85,8 +85,7 @@ class Page  < ActiveRecord::Base
   end
 
   def delete_redirects
-    Redirect.where(from: self.handle).delete_all
-    Redirect.where(to: self.handle).delete_all
+    Redirect.where(page_id: self.id).delete_all
     true
   end
 

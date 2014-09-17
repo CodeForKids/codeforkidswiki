@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917031534) do
+ActiveRecord::Schema.define(version: 20140917035536) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -53,8 +53,9 @@ ActiveRecord::Schema.define(version: 20140917031534) do
   end
 
   create_table "redirects", force: true do |t|
-    t.string "from"
-    t.string "to"
+    t.string  "from"
+    t.string  "to"
+    t.integer "page_id"
   end
 
   create_table "taggings", force: true do |t|
