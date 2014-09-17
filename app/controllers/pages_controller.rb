@@ -5,6 +5,14 @@ class PagesController < ApplicationController
   before_action :set_category, only: [:new, :edit, :destroy]
 
   def show
+    if @page.nil?
+      redirect = Redirect.find_by(from: params[:page_handle])
+      if redirect
+        redirect_to page_path(params[:handle], redirect.to)
+      else
+        raise ActionController::RoutingError.new('Page Not Found')
+      end
+    end
   end
 
   def search
@@ -68,7 +76,11 @@ private
   end
 
   def set_page
-    @page = Page.find_by(handle: params[:page_handle]) || Page.find(params[:id])
+    if params[:page_handle]
+      @page = Page.find_by(handle: params[:page_handle])
+    else
+      @page = Page.find(params[:id])
+    end
   end
 
   def set_category

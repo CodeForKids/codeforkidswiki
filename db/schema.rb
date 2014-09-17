@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913184021) do
+ActiveRecord::Schema.define(version: 20140917031534) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -50,6 +50,11 @@ ActiveRecord::Schema.define(version: 20140913184021) do
     t.integer  "did_help",     default: 0
     t.integer  "did_not_help", default: 0
     t.boolean  "sticky"
+  end
+
+  create_table "redirects", force: true do |t|
+    t.string "from"
+    t.string "to"
   end
 
   create_table "taggings", force: true do |t|

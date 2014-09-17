@@ -70,6 +70,7 @@ class Page  < ActiveRecord::Base
   private
 
   def change_handle
+   Redirect.find_or_create_by(from: self.handle, to: self.title.parameterize) unless self.handle.nil?
    self.handle = self.title.parameterize
   end
 

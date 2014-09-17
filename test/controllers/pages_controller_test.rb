@@ -5,6 +5,7 @@ class PagesControllerTest < ActionController::TestCase
     @page = pages(:one)
     @page2 = pages(:two)
     @category = categories(:one)
+    @redirect = redirects(:one)
     setup_controller_tests
   end
 
@@ -55,6 +56,18 @@ class PagesControllerTest < ActionController::TestCase
   test "should show page" do
     get :show, { page_handle: @page.handle, handle: @category.handle }
     assert_response :success
+  end
+
+  test "should redirect show page that 404s" do
+    @page.delete
+    get :show, { page_handle: @page.handle, handle: @category.handle }
+    assert_redirected_to page_path(@category.handle, @page2.handle)
+  end
+
+  test "should 404 page" do
+    assert_raises ActionController::RoutingError do
+      get :show, { page_handle: "doesnt-exit", handle: @category.handle }
+    end
   end
 
   test "should get edit" do
