@@ -102,7 +102,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "should destroy page" do
-    assert_difference('Page.count', -1) do
+    assert_difference ['Page.count','Redirect.count'], -1 do
       delete :destroy, { page_handle: @page.handle, handle: @category.handle }
     end
 

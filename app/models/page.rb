@@ -48,6 +48,8 @@ class Page  < ActiveRecord::Base
   after_create :create_commit
   before_save :change_handle
 
+  before_destroy :delete_redirects
+
   def most_common_committer
     users_count = self.commits.group(:user_id).count
     committer_id = users_count.max_by{ |k,v| v }[0]
@@ -80,6 +82,12 @@ class Page  < ActiveRecord::Base
     commit.user = User.current_user
     commit.message = 'Initial Commit'
     commit.save!
+  end
+
+  def delete_redirects
+    Redirect.where(from: self.handle).delete_all
+    Redirect.where(to: self.handle).delete_all
+    true
   end
 
 end
