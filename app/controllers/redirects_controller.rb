@@ -3,7 +3,7 @@ class RedirectsController < ApplicationController
   before_action :check_admin
 
   def index
-    @redirects = Redirect.all.includes(:page)
+    @redirects = Redirect.all.includes(:page).paginate(:page => params[:page], :per_page => 25)
   end
 
   def new
