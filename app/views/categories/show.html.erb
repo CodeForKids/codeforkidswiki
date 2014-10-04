@@ -13,37 +13,18 @@
 
 <div class="row padded-bottom">
 
-<% @pages.each do |page| %>
+  <%= render @pages %>
 
-  <section class="row page-tease">
-    <%= link_to page_path(@category.handle, page.handle), :title => 'Read more about ' + page.title do %>
-      <div>
+  <div class="padded-vert pull-right">
+  <%= foundation_paginate @pages %>
+  </div>
 
-        <div class="medium-12 columns">
-          <h2><%= page.title %></h2>
-          <h3 class="page-updated"><small>Last updated on <time pubdate="" datetime="<%= page.last_updated %>"><%= page.last_updated %></time> - by <%= page.most_common_committer.username %></small></h3>
-          <p class="preview">
-            <%= page.preview %>
-          </p>
-          <span>Read More</span>
-        </div>
-
-      </div>
-    <% end %>
-  </section>
-
-<% end %>
-
-<div class="padded-vert pull-right">
-<%= foundation_paginate @pages %>
-</div>
-
-<% if @pages.count == 0 %>
-<div class="small-12 columns text-center no-pages">
-  <p><i class="fa fa-files-o fa-5x"></i></p>
-  <h5>There doesn't seem to be any pages here yet.</h5>
-  <p><%= link_to 'Return Home', root_url %></p>
-</div>
-<% end %>
+  <% if @pages.count == 0 %>
+  <div class="small-12 columns text-center no-pages">
+    <p><i class="fa fa-files-o fa-5x"></i></p>
+    <h5>There doesn't seem to be any pages here yet.</h5>
+    <p><%= link_to 'Return Home', root_url %></p>
+  </div>
+  <% end %>
 
 </div>

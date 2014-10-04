@@ -45,11 +45,16 @@ class Page  < ActiveRecord::Base
   validates_presence_of :commit_message
 
   validates_uniqueness_of :title
+  validates :title, length: {minimum: 5, maximum: 50}
 
   after_create :create_commit
   before_save :change_handle
 
   before_destroy :delete_redirects
+
+  def self.most_recent(num)
+    order("updated_at").last(num)
+  end
 
   def most_common_committer
     users_count = self.commits.group(:user_id).count

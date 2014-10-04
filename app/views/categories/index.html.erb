@@ -1,21 +1,35 @@
 <div class="row padded-vert">
 
-<% @categories.each do |category| %>
-<div class="large-4 medium-6 small-12 columns category-panel padded-vert-small">
-  <%= link_to show_category_path(category.handle) do %>
-    <div class="padded-vert">
-      <div class="small-4 columns text-center">
-        <i class="padded-top-small fa fa-4x <%= category.fontawesome %>"></i>
-      </div>
-      <div class="small-8 columns">
-        <h3><%= category.name %></h3>
-        <p>There <%= pluralize_no_count(category.number_of_pages,'is','are') %> <%= pluralize(category.number_of_pages, "article") %> in this category</p>
-        <span>Read More</span>
-      </div>
+  <div class="medium-8 columns">
+    <% @categories.each do |category| %>
+    <div class="medium-6 small-12 columns category-panel padded-vert-small">
+      <%= link_to show_category_path(category.handle) do %>
+        <div class="padded-vert">
+          <div class="small-4 columns text-center">
+            <i class="padded-top-small fa fa-4x <%= category.fontawesome %>"></i>
+          </div>
+          <div class="small-8 columns">
+            <h3><%= category.name %></h3>
+            <p>There <%= pluralize_no_count(category.number_of_pages,'is','are') %> <%= pluralize(category.number_of_pages, "article") %> in this category</p>
+            <span>Read More</span>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
-<% end %>
+    <% end %>
+  </div>
+
+  <div class="medium-4 columns">
+    <h2>Recent Pages</h2>
+    <% @recents.each do |page| %>
+      <p>
+        <%= link_to page_path(page.category.handle, page.handle), :title => 'Read more about ' + page.title do %>
+          <%= page.title %> <small>in "<%= page.category.name %>" category</small>
+        <% end %>
+        <br><small>Updated about <%= time_ago_in_words(page.updated_at) %> ago</small>
+      </p>
+    <% end %>
+  </div>
 
 </div>
 

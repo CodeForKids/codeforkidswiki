@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @recents = Page.most_recent(8)
   end
 
   def show
