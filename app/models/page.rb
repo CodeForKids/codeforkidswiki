@@ -34,6 +34,7 @@ class Page  < ActiveRecord::Base
   belongs_to :category
   counter_culture :category, column_name: :number_of_pages
   has_many :commits
+  has_many :redirects
   acts_as_taggable
 
   attr_accessor :commit_message
@@ -52,8 +53,8 @@ class Page  < ActiveRecord::Base
 
   def most_common_committer
     users_count = self.commits.group(:user_id).count
-    committer_id = users_count.max_by{ |k,v| v }[0]
-    User.find(committer_id)
+    committer_id = users_count.max_by{ |k,v| v }.try(:first)
+    User.find(committer_id) if committer_id
   end
 
   def recent_commits(number=5)

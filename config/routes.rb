@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'ping' => 'application#ping'
   post '/tinymce_assets' => 'tinymce_assets#create'
 
+  resources :redirects
+
   controller :categories do
     post     'category' => :create, :as => :create_category
     get      'category/new' => :new, :as => :new_category

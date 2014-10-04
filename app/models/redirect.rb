@@ -1,3 +1,4 @@
 class Redirect < ActiveRecord::Base
-  validate :from, :to, presence: true
+  validates :from, :to, :page_id, presence: true
+  belongs_to :page
 end

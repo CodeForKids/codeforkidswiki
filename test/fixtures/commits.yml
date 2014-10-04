@@ -6,12 +6,12 @@
 #
 one:
   id: 1
-  page: one
+  page_id: 1
   user_id: 1
   message: 'Test Commit'
 
 two:
   id: 2
-  page: two
+  page_id: 2
   user_id: 1
   message: 'Test Commit 2'

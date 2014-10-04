@@ -8,6 +8,15 @@
 
 </div>
 
+<% if current_user %>
+  <div class="row padded-vert-small">
+    <div class="panel callout">
+      ADMIN ONLY:<br>
+      <%= pluralize @page.redirects.count, "redirect" %> for this page.
+    </div>
+  </div>
+<% end %>
+
 <section class="row" id="page">
 
     <div class="large-9 columns padded-vert page-padding-horiz">

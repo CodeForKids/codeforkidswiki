@@ -1,0 +1,35 @@
+<%= form_for @redirect do |f| %>
+  <% if @redirect.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@redirect.errors.count, "error") %> prohibited this redirect from being saved:</h2>
+
+      <ul>
+      <% @redirect.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :from %>
+    <%= f.text_field :from, :style => 'width:100%' %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :to %>
+    <%= f.text_field :to, :style => 'width:100%' %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :page %>
+    <%= f.collection_select(:page_id, Page.all, :id, :title, {:include_blank => true }) %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), root_url, :class => 'button radius secondary' %>
+    <%= f.submit nil, :class => 'button radius bg-blue' %>
+  </div>
+<% end %>
