@@ -1,6 +1,6 @@
 <div class="row padded-vert">
 
-  <div class="medium-8 columns">
+  <div class="medium-9 columns">
     <% @categories.each do |category| %>
     <div class="medium-6 small-12 columns category-panel padded-vert-small">
       <%= link_to show_category_path(category.handle) do %>
@@ -19,11 +19,11 @@
     <% end %>
   </div>
 
-  <div class="medium-4 columns padded-vert">
+  <div class="medium-3 columns padded-vert">
     <h3>Recently Updated Pages</h3>
     <% @recents.each do |page| %>
       <p>
-        <%= link_to page_path(page.category.handle, page.handle), :title => 'Read more about ' + page.title do %>
+        <%= link_to page_path(page.category.handle, page.handle), :title => 'Read more about ' + page.title, :class => "break" do %>
           <%= page.title %>
         <% end %>
         <br><small>Updated about <%= time_ago_in_words(page.updated_at) %> ago</small>
