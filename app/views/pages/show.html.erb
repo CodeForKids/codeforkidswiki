@@ -22,7 +22,7 @@
     <div class="large-9 columns padded-vert page-padding-horiz">
       <h1 class="title"><%= @page.title %></h1>
       <p class="date">Updated last on <time pubdate="" datetime="<%= @page.last_updated %>"><%= @page.last_updated %></time></p>
-      <%= sanitize @page.content.gsub(/src="http:\/\/([^']+)"/g,'src="https://\1"') %>
+      <%= sanitize @page.content.gsub(/src="http:\/\/([^']+)"/,'src="https://\1"') %>
       <div class="text-center padded-top">
         <%= link_to 'This page helped', help_page_path(@page, :helped => true), method: :post, class: 'button radius center small' %>
         <%= link_to 'This page did not help', help_page_path(@page, :helped => false), class: 'button radius center small', data: { confirm: 'Please leave us some feedback in the comments, we\'ll do our best to fix the problems.' }, method: :post %>
