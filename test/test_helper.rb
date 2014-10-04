@@ -15,7 +15,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   def setup
-    FakeWeb.allow_net_connect = false
+    FakeWeb.allow_net_connect = %r[^https?://codeclimate.com]
     FakeWeb.register_uri(:any, %r|\Ahttp://localhost:9200|, :body => "{}")
   end
 
