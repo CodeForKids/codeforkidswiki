@@ -53,7 +53,7 @@ class Page  < ActiveRecord::Base
   before_destroy :delete_redirects
 
   def self.most_recent(num)
-    order("updated_at").last(num)
+    unscoped.order("updated_at DESC").last(num)
   end
 
   def most_common_committer

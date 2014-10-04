@@ -19,12 +19,12 @@
     <% end %>
   </div>
 
-  <div class="medium-4 columns">
-    <h2>Recent Pages</h2>
+  <div class="medium-4 columns padded-vert">
+    <h3>Recently Updated Pages</h3>
     <% @recents.each do |page| %>
       <p>
         <%= link_to page_path(page.category.handle, page.handle), :title => 'Read more about ' + page.title do %>
-          <%= page.title %> <small>in "<%= page.category.name %>" category</small>
+          <%= page.title %>
         <% end %>
         <br><small>Updated about <%= time_ago_in_words(page.updated_at) %> ago</small>
       </p>
