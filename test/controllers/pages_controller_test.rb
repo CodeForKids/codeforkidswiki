@@ -26,11 +26,11 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should create page" do
     assert_difference ['Page.count','Commit.count'] do
-      post :create, { handle: @category.handle, page: {  title: 'Name', commit_message: 'Commit', content: 'Content', category: @category.id, category_id: @category.id } }
+      post :create, { handle: @category.handle, page: {  title: 'Naming Title', commit_message: 'Commit', content: 'Content', category: @category.id, category_id: @category.id } }
     end
 
     page = assigns(:page)
-    assert_equal 'Name', page.title
+    assert_equal 'Naming Title', page.title
     assert_equal 'Content', page.content
     assert_equal 1, page.commits.count
 
@@ -40,7 +40,7 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should not create page without commit message" do
     assert_no_difference('Page.count') do
-      post :create, { category_id: @category.id, page: {  title: 'Name', commit_message: '', content: 'Content', category: @category.id, category_id: @category.id } }
+      post :create, { category_id: @category.id, page: {  title: 'Naming Title', commit_message: '', content: 'Content', category: @category.id, category_id: @category.id } }
     end
   end
 
@@ -128,7 +128,7 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should create page with duplicate tags" do
     assert_difference ['Page.count','Commit.count'] do
-      post :create, { handle: @category.handle, page: {  tag_list: "programming, Programming, program, Program", title: 'Name', commit_message: 'Commit', content: 'Content', category: @category.id, category_id: @category.id } }
+      post :create, { handle: @category.handle, page: {  tag_list: "programming, Programming, program, Program", title: 'Naming Title', commit_message: 'Commit', content: 'Content', category: @category.id, category_id: @category.id } }
     end
 
     page = assigns(:page)
