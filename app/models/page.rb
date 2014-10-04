@@ -73,8 +73,12 @@ class Page  < ActiveRecord::Base
   private
 
   def change_handle
-   Redirect.find_or_create_by(from: self.handle, to: self.title.parameterize, page_id: self.id) unless self.handle.nil?
+   Redirect.find_or_create_by(from: self.handle, to: self.title.parameterize, page_id: self.id) if make_redirect?
    self.handle = self.title.parameterize
+  end
+
+  def make_redirect?
+    !self.new_record? && self.title.parameterize != self.handle
   end
 
   def create_commit
