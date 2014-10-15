@@ -64,7 +64,7 @@ class PagesControllerTest < ActionController::TestCase
   test "should show most_recent" do
     @page2.touch
     get :most_recent
-    assert_response :success
+    assert_redirected_to page_path(@page2.category.handle, @page2.handle)
     assert_equal @page2, assigns(:page)
   end
 

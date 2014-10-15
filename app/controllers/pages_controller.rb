@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 
   def most_recent
     @page = Page.most_recent(1).first
-    @category = @page.category
+    redirect_to page_path(@page.category.handle, @page.handle)
   end
 
   def search
