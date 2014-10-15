@@ -61,6 +61,13 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should show most_recent" do
+    @page2.touch
+    get :most_recent
+    assert_response :success
+    assert_equal @page2, assigns(:page)
+  end
+
   test "should redirect show page that 404s" do
     @page.delete
     get :show, { page_handle: @page.handle, handle: @category.handle }

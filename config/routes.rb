@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     controller :pages do
      get      'search' => :search, :as => :search
      post     'pages' => :create, :as => :create_page
+     get      'most_recent' => :most_recent, as: :most_recent
      get      'category/:handle/pages/new' => :new, :as => :new_page
      get      'category/:handle/pages/:id/edit' => :edit, :as => :edit_page
      get      'category/:handle/pages/:page_handle' => :show, :as => :page

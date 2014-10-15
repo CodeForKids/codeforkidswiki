@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   include ApplicationHelper
   before_action :check_admin, only: [:new, :edit, :update, :destroy]
   before_action :set_page, only: [:show, :edit, :update, :destroy, :history, :helped]
-  before_action :set_category, only: [:new, :edit, :destroy]
+  before_action :set_category, only: [:show, :new, :edit, :destroy]
 
   def show
     if @page.nil?
@@ -13,6 +13,11 @@ class PagesController < ApplicationController
         raise ActionController::RoutingError.new('Page Not Found')
       end
     end
+  end
+
+  def most_recent
+    @page = Page.most_recent(1).first
+    @category = @page.category
   end
 
   def search
