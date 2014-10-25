@@ -19,41 +19,14 @@
 
 <section class="row" id="page">
 
-    <div class="large-9 columns padded-vert page-padding-horiz">
+    <div class="large-12 columns padded-vert page-padding-horiz">
       <h1 class="title"><%= @page.title %></h1>
       <p class="date">Updated last on <time pubdate="" datetime="<%= @page.last_updated %>"><%= @page.last_updated %></time></p>
       <%= sanitize @page.content.gsub(/src="http:\/\/([^']+)"/,'src="https://\1"') %>
-      <div class="text-center padded-top">
-        <%= link_to 'This page helped', help_page_path(@page, :helped => true), method: :post, class: 'button radius center small' %>
-        <%= link_to 'This page did not help', help_page_path(@page, :helped => false), class: 'button radius center small', data: { confirm: 'Please leave us some feedback in the comments, we\'ll do our best to fix the problems.' }, method: :post %>
-        <p><%= pluralize(@page.did_help, 'person', 'people') %> found this page helpful, <%= @page.did_not_help %> did not</p>
-      </div>
+      <%= render 'page_info' %>
+      <%= render 'help_info' %>
       <hr>
       <%= render 'disqus' %>
     </div>
-
-    <aside class="large-3 padded-vert padded-horiz columns" id="sidebar-single_post">
-      <div class="row">
-        <div class="medium-6 large-12 columns" id="sidebar-author">
-            <div class="row">
-                  <div class="small-4 large-12 columns">
-                    <img class="img-round" src="<%= gravatar(@page.most_common_committer.email) %>" alt="<%= @page.most_common_committer.username %>">
-                  </div>
-                  <div class="small-8 large-12 columns">
-                    <h4>Most common committer: <%= @page.most_common_committer.username %></h4>
-                    <h6>There have been <%= @page.commits.count %> commits on this page.</h6>
-                    <hr>
-                    <p><b>Recent Commits</b><br>
-                    <%= link_to "View Full History", page_commits_path(@category.handle, @page.handle) %></p>
-                    <ul id="recent-commits">
-                      <% @page.recent_commits.each do |commit| %>
-                        <li><%= commit.user.username %> committed on <%= commit.updated_at.to_formatted_s(:short) %></li>
-                      <% end %>
-                    </ul>
-                </div>
-            </div>
-        </div>
-      </div>
-    </aside>
 
 </section>

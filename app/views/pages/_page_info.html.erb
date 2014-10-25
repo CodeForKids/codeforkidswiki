@@ -1,0 +1,22 @@
+<aside class="large-12 padded-vert padded-horiz columns" id="sidebar-single_post">
+  <div class="row">
+    <div class="medium-12 large-12 columns" id="sidebar-author">
+        <div class="row">
+              <div class="medium-4 columns author-image">
+                <img class="img-round" src="<%= gravatar(@page.most_common_committer.email) %>" alt="<%= @page.most_common_committer.username %>">
+                <h4>Most common committer: <%= @page.most_common_committer.username %></h4>
+                <h6>There have been <%= @page.commits.count %> commits on this page.</h6>
+              </div>
+              <div class="medium-8 columns">
+                <p><b>Recent Commits</b><br>
+                <%= link_to "View Full History", page_commits_path(@category.handle, @page.handle) %></p>
+                <ul id="recent-commits">
+                  <% @page.recent_commits.each do |commit| %>
+                    <li><%= commit.user.username %> committed on <%= commit.updated_at.to_formatted_s(:short) %></li>
+                  <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+</aside>
