@@ -229,6 +229,8 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
     will_paginate (3.0.5)
+    zeroclipboard-rails (0.0.13)
+      railties (>= 3.1)
 
 PLATFORMS
   ruby
@@ -263,3 +265,4 @@ DEPENDENCIES
   unicorn
   webmock
   will_paginate
+  zeroclipboard-rails

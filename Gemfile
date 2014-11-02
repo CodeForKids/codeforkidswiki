@@ -30,6 +30,8 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 gem "airbrake"
 gem "lograge"
 
+gem 'zeroclipboard-rails'
+
 group :production do
   gem 'remote_syslog_logger'
 end
