@@ -2,10 +2,11 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :set_current_user, :except => :ping
+  around_filter :set_current_user, :except => :ping
 
   def set_current_user
-    User.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
+    User.current_user = User.find_by_id(session[:user_id])
+    yield
   ensure
     # to address the thread variable leak issues in Puma/Thin webserver
     User.current_user = nil
