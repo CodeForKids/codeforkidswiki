@@ -2,7 +2,8 @@ Rails.application.routes.default_url_options[:host] = ENV['DEFAULT_HOST']
 
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  devise_for :users, skip: [:sessions, :registration], controllers: { omniauth_callbacks: "omniauth_callbacks" }
+
   root 'categories#index'
   get '/logout' => 'application#logout'
   get 'ping' => 'application#ping'
