@@ -8,7 +8,6 @@
 //= require foundation
 //= require highlight.pack
 //= require analytics
-//= require zeroclipboard
 //= require_tree .
 
 resetScroll = ->

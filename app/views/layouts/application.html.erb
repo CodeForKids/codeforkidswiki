@@ -24,6 +24,7 @@
 
     <!-- START CONTENT -->
     <div class="content">
+
       <!-- START SPLASH HEADER -->
       <section class="page-splash text-center wrap">
         <div class="page-splash-container">
@@ -98,17 +99,6 @@
         ga('create', '<%=ENV["CFK_WIKI_GA_CODE"]%>', 'auto');
         ga('send', 'pageview');
       </script>
-    <% end %>
-
-    <div id="toast"></div>
-    <% unless flash.empty? %>
-      <ul id="toasts">
-        <% flash.each do |key, message| %>
-          <% message.split("\n").each do |submessage| %>
-            <li data-toast-type="<%= key %>"><%= html_escape submessage %></li>
-          <% end %>
-        <% end %>
-      </ul>
     <% end %>
 
   </body>
