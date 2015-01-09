@@ -23,6 +23,7 @@ gem "fog", "~> 1.3.1", require: "fog/aws/storage"
 gem "carrierwave"
 gem 'acts-as-taggable-on'
 gem 'tire'
+gem 'jbuilder'
 
 gem 'unicorn'
 gem 'newrelic_rpm'

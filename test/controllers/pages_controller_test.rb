@@ -61,6 +61,12 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get show as json" do
+    get :show, { page_handle: @page.handle, handle: @category.handle, format: :json }
+    assert_response :success
+    assert JSON.parse(response.body)
+  end
+
   test "should show most_recent" do
     @page2.touch
     get :most_recent

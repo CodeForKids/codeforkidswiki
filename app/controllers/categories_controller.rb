@@ -9,7 +9,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @pages = Page.where(:category => @category).paginate(:page => params[:page], :per_page => 5)
+    @per_page = params[:per_page] || 5
+    @page_number = params[:page] || 1
+    @pages = Page.where(:category => @category).paginate(:page => @page_number, :per_page => @per_page)
   end
 
   def new

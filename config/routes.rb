@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :redirects
 
   controller :categories do
+    get      'categories' => :index, :as => :categories
     post     'category' => :create, :as => :create_category
     get      'category/new' => :new, :as => :new_category
     get      'category/:handle/edit' => :edit, :as => :edit_category

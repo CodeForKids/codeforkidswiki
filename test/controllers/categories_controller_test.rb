@@ -13,6 +13,12 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:recents)
   end
 
+  test "should get index as json" do
+    get :index, format: :json
+    assert_response :success
+    assert JSON.parse(response.body)
+  end
+
   test "should get new" do
     get :new
     assert_response :success
@@ -44,6 +50,12 @@ class CategoriesControllerTest < ActionController::TestCase
   test "should show category" do
     get :show, handle: @category.handle
     assert_response :success
+  end
+
+  test "should get show as json" do
+    get :show, handle: @category.handle, format: :json
+    assert_response :success
+    assert JSON.parse(response.body)
   end
 
   test "should get edit" do
