@@ -7,5 +7,5 @@ json.array!(pages) do |page|
     json.username page.most_common_committer.username
     json.email page.most_common_committer.email
   end
-  json.url page_url(page.category, page.handle, format: :json)
+  json.url page_url(page.category.handle, page.handle, format: :json)
 end
