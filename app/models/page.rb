@@ -15,7 +15,7 @@ class Page  < ActiveRecord::Base
     indexes :handle, type: 'string', index: :not_analyzed
     indexes :category_id, type: 'integer', index: :not_analyzed
     indexes :tag_list, type: 'string', boost: 50
-    # indexes :sticky, type: 'boolean', boost: 75
+    indexes :sticky, type: 'boolean', boost: 75
   end
 
   def to_indexed_json
@@ -27,7 +27,7 @@ class Page  < ActiveRecord::Base
       handle: handle,
       category_id: category_id,
       tag_list: tag_list,
-      # sticky: sticky
+      sticky: sticky
     }.to_json
   end
 
