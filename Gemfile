@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.1'
-gem 'mysql2'
+gem 'pg'
 
 #Authentication with Google
 gem 'devise'
@@ -33,6 +33,7 @@ gem "lograge"
 
 group :production do
   gem 'remote_syslog_logger'
+  gem 'rails_12factor'
 end
 
 group :doc do
