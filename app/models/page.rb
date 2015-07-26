@@ -3,7 +3,7 @@ class Page  < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
-  # default_scope { order('sticky desc') }
+  default_scope { order('sticky desc') }
 
   index_name "wiki-engine-#{Rails.env}"
 
