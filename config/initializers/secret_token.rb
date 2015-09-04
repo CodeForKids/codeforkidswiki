@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-CfkWiki::Application.config.secret_key_base = ENV['SECRET_TOKEN']
+CfkWiki::Application.config.secret_key_base = Rails.env.production? ? ENV['SECRET_TOKEN'] : "12345678909876543213456789"

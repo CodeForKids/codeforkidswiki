@@ -22,7 +22,7 @@ gem 'counter_culture', '~> 0.1.18'
 gem "fog", "~> 1.3.1", require: "fog/aws/storage"
 gem "carrierwave"
 gem 'acts-as-taggable-on'
-gem 'tire'
+gem 'pg_search'
 gem 'jbuilder'
 
 gem 'unicorn'

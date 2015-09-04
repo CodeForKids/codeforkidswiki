@@ -21,7 +21,12 @@ class PagesController < ApplicationController
   end
 
   def search
-    @pages = PageRepository.new(params).search
+    pages = PgSearch.multisearch(params["query"])
+    values = pages.map(&:searchable)
+    current_page = params[:current_page] || 1
+    @pages = WillPaginate::Collection.create(current_page, 10, values.length) do |pager|
+      pager.replace(values)
+    end
   end
 
   def category

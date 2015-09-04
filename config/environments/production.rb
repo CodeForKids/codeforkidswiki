@@ -83,10 +83,4 @@ CfkWiki::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
-  Tire.configure do
-    url    'http://104.131.208.203:9200'
-    logger STDERR
-  end
-
 end

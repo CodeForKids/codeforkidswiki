@@ -24,6 +24,18 @@ class PagesControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
+  test 'search page by content' do
+    get :search, { :query => "TESTING" }
+    assert_response :success
+    assert [@page2], assigns(:pages)
+  end
+
+  test 'search page by title' do
+    get :search, { :query => "Page 1" }
+    assert_response :success
+    assert [@page], assigns(:pages)
+  end
+
   test "should create page" do
     assert_difference ['Page.count','Commit.count'] do
       post :create, { handle: @category.handle, page: {  title: 'Naming Title', commit_message: 'Commit', content: 'Content', category: @category.id, category_id: @category.id } }

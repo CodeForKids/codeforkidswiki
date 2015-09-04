@@ -1,35 +1,9 @@
 class Page  < ActiveRecord::Base
   include ApplicationHelper
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  include PgSearch
+  multisearchable against: [:title, :content, :tag_list]
 
   default_scope { order('sticky desc') }
-
-  index_name "wiki-engine-#{Rails.env}"
-
-  mapping do
-    indexes :id, index: :not_analyzed
-    indexes :title, analyzer: 'snowball', boost: 100
-    indexes :content, analyzer: 'snowball'
-    indexes :published_at, type: 'date', index: :not_analyzed
-    indexes :handle, type: 'string', index: :not_analyzed
-    indexes :category_id, type: 'integer', index: :not_analyzed
-    indexes :tag_list, type: 'string', boost: 50
-    indexes :sticky, type: 'boolean', boost: 75
-  end
-
-  def to_indexed_json
-    {
-      id: id,
-      title: CGI.escape(title),
-      content: content,
-      published_at: updated_at,
-      handle: handle,
-      category_id: category_id,
-      tag_list: tag_list,
-      sticky: sticky
-    }.to_json
-  end
 
   belongs_to :category
   counter_culture :category, column_name: :number_of_pages
