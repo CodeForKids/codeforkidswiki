@@ -19,7 +19,7 @@
     <div class="row padded-vert-small commit">
       <div class="medium-5 columns">
         <h3>Updated At <%= commit.updated_at.to_formatted_s(:long) %></h3>
-        <h4>Updated By <%= commit.user.username %></h4>
+        <h4>Updated By <%= commit.user.try(:username) || "Unknown" %></h4>
       </div>
       <div class="medium-7 columns">
         <p><i>

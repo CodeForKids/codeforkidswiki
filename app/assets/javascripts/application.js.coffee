@@ -37,9 +37,9 @@ setScroll = ->
 
     $(".page-splash").css "position", "fixed"
     $("#hdr-logo").css "position", "absolute"
-    $("#hdr-logo").css "top", "70px"
+    $("#hdr-logo").css "top", "24px"
     $("#hdr-logo").css "left", "20px"
-    $(".page-splash").css "top", "-65px"
+    $(".page-splash").css "top", "-19px"
     $(".inner-content").css "padding-top", "146px"
 
 checkScroll = ->

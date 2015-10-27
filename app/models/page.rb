@@ -33,7 +33,11 @@ class Page  < ActiveRecord::Base
   def most_common_committer
     users_count = self.commits.group(:user_id).count
     committer_id = users_count.max_by{ |k,v| v }.try(:first)
-    User.find(committer_id) if committer_id
+    if committer_id
+      User.find(committer_id)
+    else
+      User.new(username: "Unknown", email: "bob@example.com")
+    end
   end
 
   def recent_commits(number=5)

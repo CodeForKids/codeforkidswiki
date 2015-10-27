@@ -1,67 +1,9 @@
-<footer class="wrap bg-black padded-vert">
+<footer class="wrap bg-black padded-vert-small">
   <div class="row">
-
-    <!-- START FOOTER WIDGET 1 -->
-    <div class="medium-6 large-3 columns">
-      <h4>Sign up for our mailing list</h4>
-      <%= render 'layouts/mailchimp' %>
-    </div>
-    <!-- END FOOTER WIDGET 1 -->
-
-    <!-- START FOOTER WIDGET 3 -->
-    <div class="medium-6 large-3 columns">
-      <h4>Pages &amp; Resources</h4>
-      <ul class="no-style">
-
-        <li class="active"><a href="http://codeforkids.ca/pages/about" class="menu-link" title="Go To Code For Kids About Code For Kids">About Code For Kids</a>
-        </li>
-
-        <li><a href="http://codeforkids.ca/pages/design-guidelines" class="menu-link" title="Go To Code For Kids Brand Guidelines">Brand Guidelines</a>
-        </li>
-
-        <li><a href="http://codeforkids.ca/pages/about#about-press" class="menu-link" title="Go To Code For Kids Media/Press Information">Media/Press Information</a>
-        </li>
-
-        <li><a href="http://codeforkids.ca/pages/about#sponsors" class="menu-link" title="Go To Code For Kids Become a Sponsor">Become a Sponsor</a>
-        </li>
-
-        <li><a href="http://codebykids.ca" class="menu-link" title="Go To Code For Kids Kids' Project Pages">Kids' Project Pages</a>
-        </li>
-
-        <li><a href="http://codeforkids.ca/pages/privacy-policy" class="menu-link" title="Go To Code For Kids Privacy Policy">Privacy Policy</a>
-        </li>
-
-        <% if session[:user_id].nil? %>
-          <li><%= link_to "Admin Sign in", user_omniauth_authorize_path(:google_oauth2), rel: "nofollow" %></li>
-        <% end %>
-
-      </ul>
-    </div>
-    <!-- END FOOTER WIDGET 3 -->
-
-    <!-- START FOOTER WIDGET 4 -->
-    <div class="medium-6 large-3 columns">
-
-      <!-- START FOOTER CONNECT -->
-      <h4>Code For Kids Connect</h4>
-      <ul class="small-block-grid-2 medium-block-grid-4" id="ftr-connect">
-        <li><a href="http://facebook.com/codeforkids" target="_blank"><i class="fa fa-facebook"></i></a>
-        </li>
-        <li><a href="http://twitter.com/codeforkids" target="_blank"><i class="fa fa-twitter"></i></a>
-        </li>
-        <li><a href="http://linkedin.com/company/code-for-kids" target="_blank"><i class="fa fa-linkedin"></i></a>
-        </li>
-        <li><a href="http://linkedin.com/company/code-for-kids" target="_blank"><i class="fa fa-youtube-play"></i></a>
-        </li>
-      </ul>
-      <!-- END FOOTER CONNECT -->
-    </div>
-    <!-- END FOOTER WIDGET 4 -->
-
-    <div class="medium-6 large-3 columns">
-      <h4>Contact Us</h4>
-      <a href="mailto:contact@codeforkids.ca">contact@codeforkids.ca</a>
-    </div>
-
+    <% if session[:user_id].nil? %>
+      <div class="pull-right">
+        <small><%= link_to "Admin Sign in", user_omniauth_authorize_path(:google_oauth2), rel: "nofollow" %></small>
+      </div>
+    <% end %>
   </div>
 </footer>

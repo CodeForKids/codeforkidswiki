@@ -12,7 +12,7 @@
                 <%= link_to "View Full History", page_commits_path(@category.handle, @page.handle) %></p>
                 <ul id="recent-commits">
                   <% @page.recent_commits.each do |commit| %>
-                    <li><%= commit.user.username %> committed on <%= commit.updated_at.to_formatted_s(:short) %></li>
+                    <li><%= commit.user.try(:username) || "Unknown" %> committed on <%= commit.updated_at.to_formatted_s(:short) %></li>
                   <% end %>
                 </ul>
             </div>
