@@ -5,7 +5,7 @@ skip_before_filter :set_current_user
   def google_oauth2
     auth = request.env["omniauth.auth"]
     email = auth.info.email
-    if email == "devonpmack@gmail.com" || email.end_with?("code-for-kids.com")
+    if email == "devonpmack@gmail.com" || email.end_with?("code-for-kids.com") || email.end_with?("jnadeau.ca")
       @user = User.from_omniauth(auth)
       @user.password = "GoogleAuth" #We set this to get around a stupid requirement for a password, despite using Google Auth Only
 
