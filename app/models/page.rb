@@ -1,7 +1,8 @@
 class Page  < ActiveRecord::Base
   include ApplicationHelper
   include PgSearch
-  multisearchable against: [:title, :content, :tag_list]
+  multisearchable  against: [:title, :content, :tag_list],
+                   :if => lambda { |page| !page.hidden && !page.category.hidden }
 
   default_scope { where(hidden: false).order('sticky DESC, updated_at DESC') }
 
