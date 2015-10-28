@@ -27,7 +27,7 @@ class Page  < ActiveRecord::Base
   before_destroy :delete_redirects
 
   def self.most_recent(num)
-    unscoped.where(hidden: false).order("updated_at DESC").first(num)
+    unscoped.joins(:category).where(hidden: false).order("updated_at DESC").first(num)
   end
 
   def most_common_committer
