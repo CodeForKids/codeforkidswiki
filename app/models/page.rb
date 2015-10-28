@@ -1,8 +1,7 @@
 class Page  < ActiveRecord::Base
   include ApplicationHelper
   include PgSearch
-  multisearchable  against: [:title, :content, :tag_list],
-                   :if => lambda { |page| !page.hidden && !page.category.hidden }
+  multisearchable  against: [:title, :content, :tag_list], :if => :visible_in_search?
 
   default_scope { where(hidden: false).order('sticky DESC, updated_at DESC') }
 
@@ -26,6 +25,10 @@ class Page  < ActiveRecord::Base
   before_save :change_handle
 
   before_destroy :delete_redirects
+
+  def visible_in_search?
+    !page.hidden && !page.category.hidden
+  end
 
   def self.most_recent(num)
     unscoped.joins(:category).where(hidden: false).order("updated_at DESC").first(num)
