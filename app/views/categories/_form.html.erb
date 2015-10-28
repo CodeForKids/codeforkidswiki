@@ -21,6 +21,11 @@
   </div>
 
   <div class="control-group">
+    <%= f.label :hidden %>
+    <%= f.check_box :hidden, :style => 'width:100%' %>
+  </div>
+
+  <div class="control-group">
     <%= f.label :fontawesome %>
     <small>Put the name of the icon you would like to see. You can find them <a href="http://fontawesome.io/icons/" target="_blank">here.</a></small>
     <%= f.text_field :fontawesome, :style => 'width:100%' %>

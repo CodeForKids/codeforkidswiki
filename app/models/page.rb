@@ -3,7 +3,7 @@ class Page  < ActiveRecord::Base
   include PgSearch
   multisearchable against: [:title, :content, :tag_list]
 
-  default_scope { order('sticky DESC, updated_at DESC') }
+  default_scope { where(hidden: false).order('sticky DESC, updated_at DESC') }
 
   belongs_to :category
   counter_culture :category, column_name: :number_of_pages
