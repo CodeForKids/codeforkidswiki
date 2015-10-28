@@ -51,7 +51,7 @@ private
   end
 
   def category_params
-    params.require(:category).permit(:name, :fontawesome)
+    params.require(:category).permit(:name, :fontawesome, :hidden)
   end
 
 end
