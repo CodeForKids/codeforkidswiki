@@ -21,12 +21,9 @@ class PagesController < ApplicationController
   end
 
   def search
-    pages = PgSearch.multisearch(params["query"])
-    values = pages.map(&:searchable)
-    current_page = params[:page] || 1
-    @pages = WillPaginate::Collection.create(current_page, 10, values.length) do |pager|
-      pager.replace(values)
-    end
+    @per_page = params[:per_page] || 5
+    @page_number = params[:page] || 1
+    @pages = Page.joins(:category).where(hidden: false).search(params["query"]).paginate(:page => @page_number, :per_page => @per_page)
   end
 
   def category

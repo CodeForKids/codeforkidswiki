@@ -1,7 +1,9 @@
 class Page  < ActiveRecord::Base
   include ApplicationHelper
   include PgSearch
-  multisearchable  against: [:title, :content, :tag_list], :if => :visible_in_search?
+  pg_search_scope :search, 
+                  against: [:title, :content], 
+                  using: {tsearch: {prefix: true, any_word: true}}
 
   default_scope { where(hidden: false).order('sticky DESC, updated_at DESC') }
 
