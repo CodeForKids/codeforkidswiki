@@ -6,8 +6,11 @@
 #
 default: &default
   adapter: postgresql
-  encoding: utf-8
+  encoding: unicode
+  template: template0
   pool: 5
+  host: wiki.railgun
+  user: postgres
 
 development:
   <<: *default

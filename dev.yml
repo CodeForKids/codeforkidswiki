@@ -1,0 +1,52 @@
+name: wiki
+
+up:
+  - homebrew:
+    - openssl
+  - ruby: 2.3.1
+  - railgun
+  - bundler
+  - database:
+      bootstrap: bundle exec rake db:create db:migrate ; bin/rake db:test:prepare
+      migrate: bin/rake db:migrate db:test:prepare
+      host: wiki.railgun
+      user: postgres
+      password: ''
+      database: cfk_wiki_dev
+      vendor: postgres
+
+open:
+  "My Application": https://wiki.myshopify.io
+
+commands:
+  console:
+    syntax: ""
+    desc:   'start a rails console'
+    run:    bin/rails console
+  server:
+    syntax: ""
+    desc:   'start a rails server'
+    # You'll want to find the port registered for your app at https://github.com/Shopify/railgun-common-services/blob/master/nginx-config/web_apps.json
+    run:    bin/rails server -b 192.168.64.1 -p 40099
+  test:
+    syntax:
+      argument: file
+      optional: args...
+    desc:   'run a single test file'
+    run:    bundle exec rake test
+
+railgun:
+  image: dev:railgun-common-services-0.2.x
+  services:
+    postgresql:     5432
+    nginx:          80
+  # Choose an unused IP. Make a PR to https://github.com/Shopify/dev/blob/master/IP_ADDRESSES
+  ip_address: 192.168.64.217
+  memory: 2G
+  cores: 2
+  disk: 2G
+  proxy:
+    wiki.myshopify.io: 40099
+
+packages:
+  - git@github.com:Shopify/dev-shopify.git
