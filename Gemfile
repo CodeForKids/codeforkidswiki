@@ -25,7 +25,7 @@ gem 'acts-as-taggable-on'
 gem 'pg_search'
 gem 'jbuilder'
 
-gem 'unicorn'
+gem 'puma'
 gem 'newrelic_rpm'
 gem 'codeclimate-test-reporter', group: :test, require: nil
 gem 'airbrake'
