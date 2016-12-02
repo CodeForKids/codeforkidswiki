@@ -1,9 +1,9 @@
-class Page  < ActiveRecord::Base
+class Page < ActiveRecord::Base
   include ApplicationHelper
   include PgSearch
-  pg_search_scope :search, 
-                  against: [:title, :content], 
-                  using: {tsearch: {prefix: true, any_word: true}}
+  pg_search_scope :search,
+                  against: [:title, :content],
+                  using: { tsearch: { prefix: true, any_word: true } }
 
   default_scope { where(hidden: false).order('sticky DESC, updated_at DESC') }
 
@@ -21,7 +21,7 @@ class Page  < ActiveRecord::Base
   validates_presence_of :commit_message
 
   validates_uniqueness_of :title
-  validates :title, length: {minimum: 5, maximum: 50}
+  validates :title, length: { minimum: 5, maximum: 50 }
 
   after_create :create_commit
   before_save :change_handle
@@ -33,41 +33,41 @@ class Page  < ActiveRecord::Base
   end
 
   def self.most_recent(num)
-    unscoped.joins(:category).where(hidden: false).order("updated_at DESC").first(num)
+    unscoped.joins(:category).where(hidden: false).order('updated_at DESC').first(num)
   end
 
   def most_common_committer
-    users_count = self.commits.group(:user_id).count
-    committer_id = users_count.max_by{ |k,v| v }.try(:first)
+    users_count = commits.group(:user_id).count
+    committer_id = users_count.max_by { |_k, v| v }.try(:first)
     if committer_id
       User.find(committer_id)
     else
-      User.new(username: "Unknown", email: "bob@example.com")
+      User.new(username: 'Unknown', email: 'bob@example.com')
     end
   end
 
-  def recent_commits(number=5)
-    self.commits.last(number).reverse
+  def recent_commits(number = 5)
+    commits.last(number).reverse
   end
 
   def last_updated
-    self.updated_at.to_formatted_s(:long)
+    updated_at.to_formatted_s(:long)
   end
 
   def preview
-    preview = ActionView::Base.full_sanitizer.sanitize(self.content)
-    preview = ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(preview).gsub(/&(.*);/,""), length: 300).html_safe
+    preview = ActionView::Base.full_sanitizer.sanitize(content)
+    preview = ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(preview).gsub(/&(.*);/, ''), length: 300).html_safe
   end
 
   private
 
   def change_handle
-   Redirect.find_or_create_by(from: self.handle, to: self.title.parameterize, page_id: self.id) if make_redirect?
-   self.handle = self.title.parameterize
+    Redirect.find_or_create_by(from: handle, to: title.parameterize, page_id: id) if make_redirect?
+    self.handle = title.parameterize
   end
 
   def make_redirect?
-    !self.new_record? && self.title.parameterize != self.handle
+    !new_record? && title.parameterize != handle
   end
 
   def create_commit
@@ -79,8 +79,7 @@ class Page  < ActiveRecord::Base
   end
 
   def delete_redirects
-    Redirect.where(page_id: self.id).delete_all
+    Redirect.where(page_id: id).delete_all
     true
   end
-
 end

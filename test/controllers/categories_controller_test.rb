@@ -6,27 +6,27 @@ class CategoriesControllerTest < ActionController::TestCase
     setup_controller_tests
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:categories)
     assert_not_nil assigns(:recents)
   end
 
-  test "should get index as json" do
+  test 'should get index as json' do
     get :index, format: :json
     assert_response :success
     assert JSON.parse(response.body)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create category" do
+  test 'should create category' do
     assert_difference('Category.count') do
-      post :create, { :category => { :name => 'NEW Category' } }
+      post :create, category: { name: 'NEW Category' }
     end
 
     category = assigns(:category)
@@ -35,36 +35,36 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_redirected_to show_category_path(category.handle)
   end
 
-  test "should not create category without name" do
+  test 'should not create category without name' do
     assert_no_difference('Category.count') do
-      post :create, { :category => { :name => '' } }
+      post :create, category: { name: '' }
     end
   end
 
-  test "should not create category without unique name" do
+  test 'should not create category without unique name' do
     assert_no_difference('Category.count') do
-      post :create, { :category => { :name => @category.name } }
+      post :create, category: { name: @category.name }
     end
   end
 
-  test "should show category" do
+  test 'should show category' do
     get :show, handle: @category.handle
     assert_response :success
   end
 
-  test "should get show as json" do
+  test 'should get show as json' do
     get :show, handle: @category.handle, format: :json
     assert_response :success
     assert JSON.parse(response.body)
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, handle: @category.handle
     assert_response :success
   end
 
-  test "should update category" do
-    patch :update, { :id => @category, :category => { :name => 'UPDATE Category' } }
+  test 'should update category' do
+    patch :update, id: @category, category: { name: 'UPDATE Category' }
 
     category = assigns(:category)
     assert_equal 'UPDATE Category', category.name
@@ -73,12 +73,12 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_redirected_to show_category_path(category.handle)
   end
 
-  test "should fail to update category without name" do
-    patch :update, { :id => @category, :category => { :name => '' } }
+  test 'should fail to update category without name' do
+    patch :update, id: @category, category: { name: '' }
     assert_template :edit
   end
 
-  test "should destroy category" do
+  test 'should destroy category' do
     assert_difference('Category.count', -1) do
       delete :destroy, handle: @category.handle
     end

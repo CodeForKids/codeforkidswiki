@@ -8,4 +8,3 @@ class CreateCommits < ActiveRecord::Migration
     end
   end
 end
-

@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   def show
     @per_page = params[:per_page] || 5
     @page_number = params[:page] || 1
-    @pages = Page.where(:category => @category).paginate(:page => @page_number, :per_page => @per_page)
+    @pages = Page.where(category: @category).paginate(page: @page_number, per_page: @per_page)
   end
 
   def new
@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
     redirect_to root_url
   end
 
-private
+  private
 
   def set_category
     @category = Category.find_by(handle: params[:handle]) || Category.find(params[:id])
@@ -53,5 +53,4 @@ private
   def category_params
     params.require(:category).permit(:name, :fontawesome, :hidden)
   end
-
 end

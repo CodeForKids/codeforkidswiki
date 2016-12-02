@@ -15,8 +15,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test 'pluralize no count' do
-    assert_equal 'is', pluralize_no_count(1,'is','are')
-    assert_equal 'are', pluralize_no_count(2,'is','are')
+    assert_equal 'is', pluralize_no_count(1, 'is', 'are')
+    assert_equal 'are', pluralize_no_count(2, 'is', 'are')
   end
-
 end

@@ -49,7 +49,7 @@ CfkWiki::Application.configure do
   # config.log_tags = [ :subdomain, :uuid ]
 
   # Use a different logger for distributed setups.
-  config.logger = RemoteSyslogLogger.new('logs2.papertrailapp.com', 23092)
+  config.logger = RemoteSyslogLogger.new('logs2.papertrailapp.com', 23_092)
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -78,7 +78,7 @@ CfkWiki::Application.configure do
   config.lograge.enabled = true
   config.lograge.ignore_actions = ['application#ping']
   config.lograge.custom_options = lambda do |event|
-    {:time => event.time, :remote_ip => event.payload[:remote_ip], :uuid => event.payload[:uuid]}
+    { time: event.time, remote_ip: event.payload[:remote_ip], uuid: event.payload[:uuid] }
   end
 
   # Use default logging formatter so that PID and timestamp are not suppressed.

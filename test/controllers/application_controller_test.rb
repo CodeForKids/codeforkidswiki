@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class ApplicationControllerTest < ActionController::TestCase
-
-  test "test ping" do
+  test 'test ping' do
     get :ping
     assert 'ACK', response.body
   end
@@ -13,5 +12,4 @@ class ApplicationControllerTest < ActionController::TestCase
     assert_nil session[:user_id]
     assert_nil session[:user_email]
   end
-
 end

@@ -21,14 +21,13 @@ class PageTest < ActiveSupport::TestCase
 
   test 'Update Title' do
     assert_difference 'Redirect.count' do
-      @page.title = "Some new title"
+      @page.title = 'Some new title'
       @page.save(validate: false)
     end
 
     redirect = Redirect.last
-    assert_equal "page-1", redirect.from
-    assert_equal "some-new-title", redirect.to
+    assert_equal 'page-1', redirect.from
+    assert_equal 'some-new-title', redirect.to
     assert_equal @page.id, redirect.page_id
   end
-
 end

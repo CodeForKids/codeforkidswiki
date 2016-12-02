@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 gem 'pg'
 
-#Authentication with Google
+# Authentication with Google
 gem 'devise'
 gem 'omniauth-google-oauth2'
 
@@ -19,17 +19,17 @@ gem 'font-awesome-sass'
 gem 'foundation-rails'
 gem 'turbolinks'
 gem 'counter_culture', '~> 0.1.18'
-gem "fog", "~> 1.3.1", require: "fog/aws/storage"
-gem "carrierwave"
+gem 'fog', '~> 1.3.1', require: 'fog/aws/storage'
+gem 'carrierwave'
 gem 'acts-as-taggable-on'
 gem 'pg_search'
 gem 'jbuilder'
 
 gem 'unicorn'
 gem 'newrelic_rpm'
-gem "codeclimate-test-reporter", group: :test, require: nil
-gem "airbrake"
-gem "lograge"
+gem 'codeclimate-test-reporter', group: :test, require: nil
+gem 'airbrake'
+gem 'lograge'
 
 group :production do
   gem 'remote_syslog_logger'

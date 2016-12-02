@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       if redirect
         redirect_to page_path(params[:handle], redirect.to)
       else
-        raise ActionController::RoutingError.new('Page Not Found')
+        raise ActionController::RoutingError, 'Page Not Found'
       end
     end
   end
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
   def search
     @per_page = params[:per_page] || 5
     @page_number = params[:page] || 1
-    @pages = Page.joins(:category).where(hidden: false).search(params["query"]).paginate(:page => @page_number, :per_page => @per_page)
+    @pages = Page.joins(:category).where(hidden: false).search(params['query']).paginate(page: @page_number, per_page: @per_page)
   end
 
   def category
@@ -63,7 +63,7 @@ class PagesController < ApplicationController
   end
 
   def helped
-    if params[:helped] == "true"
+    if params[:helped] == 'true'
       @page.did_help += 1
     else
       @page.did_not_help += 1
@@ -72,7 +72,7 @@ class PagesController < ApplicationController
     redirect_to page_path(@page.category.handle, @page.handle), notice: 'Thanks for the feedback'
   end
 
-private
+  private
 
   def update_commit
     commit = Commit.new
@@ -83,11 +83,11 @@ private
   end
 
   def set_page
-    if params[:page_handle]
-      @page = Page.find_by(handle: params[:page_handle])
-    else
-      @page = Page.find(params[:id])
-    end
+    @page = if params[:page_handle]
+              Page.find_by(handle: params[:page_handle])
+            else
+              Page.find(params[:id])
+            end
   end
 
   def set_category
@@ -100,9 +100,8 @@ private
 
   def remove_duplicate_tags
     if params[:page][:tag_list]
-      tag_array = params[:page][:tag_list].downcase.split(',').map { |tag| tag.strip }
+      tag_array = params[:page][:tag_list].downcase.split(',').map(&:strip)
       params[:page][:tag_list] = tag_array.uniq.join(',')
     end
   end
-
 end

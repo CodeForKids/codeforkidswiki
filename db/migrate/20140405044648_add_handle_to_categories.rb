@@ -13,6 +13,5 @@ class AddHandleToCategories < ActiveRecord::Migration
       page.handle = page.title.parameterize
       page.save(validate: false)
     end
-
   end
 end

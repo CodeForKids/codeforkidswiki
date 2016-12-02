@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  validates :name, length: {minimum: 5, maximum: 30}, presence: true, uniqueness: true
+  validates :name, length: { minimum: 5, maximum: 30 }, presence: true, uniqueness: true
   has_many :pages
 
   default_scope { where(hidden: false) }
@@ -9,7 +9,6 @@ class Category < ActiveRecord::Base
   private
 
   def change_handle
-    self.handle = self.name.parameterize
+    self.handle = name.parameterize
   end
-
 end
